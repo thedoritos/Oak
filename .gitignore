@@ -1,0 +1,51 @@
+### https://raw.github.com/github/gitignore/eda2ee70de1bf7db7e0aba7c7b71aeb2c1c7eeec/Global/osx.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+
+### https://raw.github.com/github/gitignore/eda2ee70de1bf7db7e0aba7c7b71aeb2c1c7eeec/Global/vim.gitignore
+
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+
+### https://raw.github.com/github/gitignore/eda2ee70de1bf7db7e0aba7c7b71aeb2c1c7eeec/objective-c.gitignore
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+profile
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+
+# CocoaPods
+Pods
+
+
