@@ -1,6 +1,7 @@
 # Oak
 
 client_secret.json
+!/OakTests/**/client_secret.json
 
 ### https://raw.github.com/github/gitignore/eda2ee70de1bf7db7e0aba7c7b71aeb2c1c7eeec/Global/osx.gitignore
 
