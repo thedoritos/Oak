@@ -13,7 +13,12 @@
 		9D4719B71B0578B800AAF8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B51B0578B800AAF8FE /* Main.storyboard */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
-		9D4719C81B0578B800AAF8FE /* OakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719C71B0578B800AAF8FE /* OakTests.m */; };
+		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
+		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
+		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
+		9D8402C31B067DA900AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402C21B067DA900AD4227 /* client_secret.json */; };
+		9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */; };
+		9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */; };
 		D2FAE65EB04F5197C83AF089 /* libPods-Oak.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D25785BB4292EC1E31D13 /* libPods-Oak.a */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +46,14 @@
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719C61B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D4719C71B0578B800AAF8FE /* OakTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OakTests.m; sourceTree = "<group>"; };
+		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
+		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
+		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
+		9D8402BE1B067ABF00AD4227 /* OAKJSONLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKJSONLoader.h; path = App/Models/OAKJSONLoader.h; sourceTree = "<group>"; };
+		9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKJSONLoader.m; path = App/Models/OAKJSONLoader.m; sourceTree = "<group>"; };
+		9D8402C21B067DA900AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
+		9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKJSONLoaderTests.m; path = Tests/Models/OAKJSONLoaderTests.m; sourceTree = "<group>"; };
+		9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecretTests.m; path = Tests/Models/OAKGoogleClientSecretTests.m; sourceTree = "<group>"; };
 		BE6A532806F59789CD2C1F1D /* Pods-Oak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.debug.xcconfig"; sourceTree = "<group>"; };
 		F30EB1D42409D837C25FDA4E /* Pods-Oak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +117,8 @@
 		9D4719AA1B0578B800AAF8FE /* Oak */ = {
 			isa = PBXGroup;
 			children = (
+				9D8402B71B06764400AD4227 /* App */,
+				9D8402B41B06762800AD4227 /* Config */,
 				9D4719AF1B0578B800AAF8FE /* AppDelegate.h */,
 				9D4719B01B0578B800AAF8FE /* AppDelegate.m */,
 				9D4719B21B0578B800AAF8FE /* ViewController.h */,
@@ -129,7 +143,8 @@
 		9D4719C41B0578B800AAF8FE /* OakTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D4719C71B0578B800AAF8FE /* OakTests.m */,
+				9D8402C41B067DB600AD4227 /* Tests */,
+				9D8402C11B067D9E00AD4227 /* Config */,
 				9D4719C51B0578B800AAF8FE /* Supporting Files */,
 			);
 			path = OakTests;
@@ -141,6 +156,58 @@
 				9D4719C61B0578B800AAF8FE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D8402B41B06762800AD4227 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402B51B06763A00AD4227 /* client_secret.json */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		9D8402B71B06764400AD4227 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402B81B06765200AD4227 /* Models */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		9D8402B81B06765200AD4227 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */,
+				9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */,
+				9D8402BE1B067ABF00AD4227 /* OAKJSONLoader.h */,
+				9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9D8402C11B067D9E00AD4227 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402C21B067DA900AD4227 /* client_secret.json */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		9D8402C41B067DB600AD4227 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402C51B067DD000AD4227 /* Models */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		9D8402C51B067DD000AD4227 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */,
+				9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +294,7 @@
 			files = (
 				9D4719B71B0578B800AAF8FE /* Main.storyboard in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
+				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
 				9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8402C31B067DA900AD4227 /* client_secret.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +350,8 @@
 				9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */,
 				9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */,
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
+				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +359,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D4719C81B0578B800AAF8FE /* OakTests.m in Sources */,
+				9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */,
+				9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
