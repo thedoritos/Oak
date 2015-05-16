@@ -3,6 +3,12 @@
 client_secret.json
 !/OakTests/**/client_secret.json
 
+Travis/Certs/**/*.*
+!Travis/Certs/**/*.encrypted
+Travis/Profiles/**/*.*
+!Travis/Profiles/**/*.encrypted
+!AppleWorldwideDeveloperRelationsCertificationAuthority.cer
+
 ### https://raw.github.com/github/gitignore/eda2ee70de1bf7db7e0aba7c7b71aeb2c1c7eeec/Global/osx.gitignore
 
 .DS_Store
