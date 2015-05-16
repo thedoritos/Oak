@@ -1,6 +1,8 @@
 # Oak
 
-Calendar app for the super specialized situation.
+[![Build Status](https://travis-ci.org/thedoritos/Oak.svg?branch=develop)](https://travis-ci.org/thedoritos/Oak)
+
+Calendar app for the super limited situation.
 
 ![break](assets/homemade_wheat_bread.jpg)
 
