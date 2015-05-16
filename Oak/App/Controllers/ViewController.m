@@ -151,4 +151,10 @@ NSString * const KEYCHAIN_NAME = @"Oak";
     [alert show];
 }
 
+- (void)setCalendarEvents:(GTLCalendarEvents *)events {
+    _calendarEvents = events;
+    
+    self.title = _calendarEvents == nil ? @"Events" : events.summary;
+}
+
 @end
