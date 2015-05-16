@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cat << EOS > Oak/Config/client_secret_generated.json
+cat << EOS > Oak/Config/client_secret.json
 {
   "installed": {
     "auth_uri":"https://accounts.google.com/o/oauth2/auth",
