@@ -1,0 +1,5 @@
+language: objective-c
+
+xcode_workspace: Oak.xcworkspace
+xcode_scheme: Oak
+
