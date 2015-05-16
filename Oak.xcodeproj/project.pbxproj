@@ -10,7 +10,6 @@
 		9D4719AE1B0578B800AAF8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719AD1B0578B800AAF8FE /* main.m */; };
 		9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B01B0578B800AAF8FE /* AppDelegate.m */; };
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
-		9D4719B71B0578B800AAF8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B51B0578B800AAF8FE /* Main.storyboard */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
@@ -19,6 +18,7 @@
 		9D8402C31B067DA900AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402C21B067DA900AD4227 /* client_secret.json */; };
 		9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */; };
 		9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */; };
+		9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402CC1B06D48F00AD4227 /* ViewController.xib */; };
 		D2FAE65EB04F5197C83AF089 /* libPods-Oak.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D25785BB4292EC1E31D13 /* libPods-Oak.a */; };
 /* End PBXBuildFile section */
 
@@ -39,9 +39,8 @@
 		9D4719AD1B0578B800AAF8FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D4719AF1B0578B800AAF8FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9D4719B01B0578B800AAF8FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9D4719B21B0578B800AAF8FE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9D4719B31B0578B800AAF8FE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9D4719B61B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D4719B21B0578B800AAF8FE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = App/Controllers/ViewController.h; sourceTree = "<group>"; };
+		9D4719B31B0578B800AAF8FE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = App/Controllers/ViewController.m; sourceTree = "<group>"; };
 		9D4719B81B0578B800AAF8FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +53,7 @@
 		9D8402C21B067DA900AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKJSONLoaderTests.m; path = Tests/Models/OAKJSONLoaderTests.m; sourceTree = "<group>"; };
 		9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecretTests.m; path = Tests/Models/OAKGoogleClientSecretTests.m; sourceTree = "<group>"; };
+		9D8402CC1B06D48F00AD4227 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = App/Controllers/ViewController.xib; sourceTree = "<group>"; };
 		BE6A532806F59789CD2C1F1D /* Pods-Oak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.debug.xcconfig"; sourceTree = "<group>"; };
 		F30EB1D42409D837C25FDA4E /* Pods-Oak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,9 +121,6 @@
 				9D8402B41B06762800AD4227 /* Config */,
 				9D4719AF1B0578B800AAF8FE /* AppDelegate.h */,
 				9D4719B01B0578B800AAF8FE /* AppDelegate.m */,
-				9D4719B21B0578B800AAF8FE /* ViewController.h */,
-				9D4719B31B0578B800AAF8FE /* ViewController.m */,
-				9D4719B51B0578B800AAF8FE /* Main.storyboard */,
 				9D4719B81B0578B800AAF8FE /* Images.xcassets */,
 				9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */,
 				9D4719AB1B0578B800AAF8FE /* Supporting Files */,
@@ -170,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8402B81B06765200AD4227 /* Models */,
+				9D8402CB1B06D40100AD4227 /* Controllers */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -208,6 +206,16 @@
 				9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9D8402CB1B06D40100AD4227 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D4719B21B0578B800AAF8FE /* ViewController.h */,
+				9D4719B31B0578B800AAF8FE /* ViewController.m */,
+				9D8402CC1B06D48F00AD4227 /* ViewController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D4719B71B0578B800AAF8FE /* Main.storyboard in Resources */,
+				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
 				9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */,
@@ -375,14 +383,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9D4719B51B0578B800AAF8FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D4719B61B0578B800AAF8FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
