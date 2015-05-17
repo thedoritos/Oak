@@ -37,17 +37,40 @@
 }
 
 - (void)testGetBeginningOfMonth {
-    NSDate * beginning = [self.today beginningOfMonth];
+    NSDate *beginning = [self.today beginningOfMonth];
     XCTAssertEqual(beginning.year, 1988);
     XCTAssertEqual(beginning.month, 2);
     XCTAssertEqual(beginning.day, 1);
 }
 
 - (void)testGetEndOfMonth {
-    NSDate * end = [self.today endOfMonth];
+    NSDate *end = [self.today endOfMonth];
     XCTAssertEqual(end.year, 1988);
     XCTAssertEqual(end.month, 2);
     XCTAssertEqual(end.day, 29);
+}
+
+- (void)testAddDay {
+    NSDate *tomorrow = [self.today addDay:1];
+    XCTAssertEqual(tomorrow.year, 1988);
+    XCTAssertEqual(tomorrow.month, 2);
+    XCTAssertEqual(tomorrow.day, 15);
+    
+    NSDate *yesterday = [self.today addDay:-1];
+    XCTAssertEqual(yesterday.year, 1988);
+    XCTAssertEqual(yesterday.month, 2);
+    XCTAssertEqual(yesterday.day, 13);
+}
+
+- (void)testGetDaysBetween {
+    XCTAssertEqual([NSDate daysBetween:[self.today beginningOfMonth] and:[self.today endOfMonth]], 29);
+}
+
+- (void)testGetDatesBetween {
+    NSArray *dates = [NSDate datesBetween:[self.today beginningOfMonth] and:[self.today endOfMonth]];
+    XCTAssertEqual(dates.count, 29);
+    XCTAssertEqualObjects(dates.firstObject, [self.today beginningOfMonth]);
+    XCTAssertEqualObjects(dates.lastObject, [self.today endOfMonth]);
 }
 
 @end

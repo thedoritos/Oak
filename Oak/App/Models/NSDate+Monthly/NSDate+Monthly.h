@@ -17,4 +17,9 @@
 - (NSDate *)beginningOfMonth;
 - (NSDate *)endOfMonth;
 
+- (NSDate *)addDay:(NSInteger)day;
+
++ (NSInteger)daysBetween:(NSDate *)start and:(NSDate *)end;
++ (NSArray *)datesBetween:(NSDate *)start and:(NSDate *)end;
+
 @end
