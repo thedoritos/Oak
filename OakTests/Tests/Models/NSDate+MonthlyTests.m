@@ -62,6 +62,19 @@
     XCTAssertEqual(yesterday.day, 13);
 }
 
+- (void)testIsBetween {
+    XCTAssertTrue([self.today isBetween:[self.today addDay:-1] and:[self.today addDay:1]],
+                   @"should be between");
+    XCTAssertTrue([self.today isBetween:[self.today addDay:0] and:[self.today addDay:1]],
+                   @"should be between if on start");
+    XCTAssertTrue([self.today isBetween:[self.today addDay:-1] and:[self.today addDay:0]],
+                   @"should be between if on end");
+    XCTAssertFalse([self.today isBetween:[self.today addDay:1] and:[self.today addDay:3]],
+                   @"should not be between before start");
+    XCTAssertFalse([self.today isBetween:[self.today addDay:-3] and:[self.today addDay:-1]],
+                   @"should not be between after end");
+}
+
 - (void)testGetDaysBetween {
     XCTAssertEqual([NSDate daysBetween:[self.today beginningOfMonth] and:[self.today endOfMonth]], 29);
 }

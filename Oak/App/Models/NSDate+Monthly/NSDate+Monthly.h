@@ -19,6 +19,8 @@
 
 - (NSDate *)addDay:(NSInteger)day;
 
+- (BOOL)isBetween:(NSDate *)start and:(NSDate *)end;
+
 + (NSInteger)daysBetween:(NSDate *)start and:(NSDate *)end;
 + (NSArray *)datesBetween:(NSDate *)start and:(NSDate *)end;
 
