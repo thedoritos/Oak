@@ -10,4 +10,7 @@
 
 @interface OAKDayCell : UITableViewCell
 
+- (void)setDate:(NSDate *)date;
+- (void)setEvents:(NSArray *)events;
+
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "OAKDayCell.h"
+#import "NSDate+Monthly.h"
+#import <BlocksKit/BlocksKit.h>
+#import <GTLCalendarEvent.h>
 
 @interface OAKDayCell ()
 
@@ -16,5 +19,15 @@
 @end
 
 @implementation OAKDayCell
+
+- (void)setDate:(NSDate *)date {
+    self.dayLabel.text = [NSString stringWithFormat:@"%ld", (long)date.day];
+}
+
+- (void)setEvents:(NSArray *)events {
+    self.eventLabel.text = [[events bk_map:^NSString *(GTLCalendarEvent *event) {
+        return event.summary;
+    }] componentsJoinedByString:@"; "];
+}
 
 @end
