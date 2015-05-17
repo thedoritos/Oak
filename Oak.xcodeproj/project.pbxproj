@@ -19,6 +19,10 @@
 		9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */; };
 		9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */; };
 		9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402CC1B06D48F00AD4227 /* ViewController.xib */; };
+		9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402D11B08327000AD4227 /* OAKDayCell.m */; };
+		9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402D21B08327000AD4227 /* OAKDayCell.xib */; };
+		9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */; };
+		9D8402DB1B0839E300AD4227 /* NSDate+MonthlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */; };
 		D2FAE65EB04F5197C83AF089 /* libPods-Oak.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973D25785BB4292EC1E31D13 /* libPods-Oak.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,12 @@
 		9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKJSONLoaderTests.m; path = Tests/Models/OAKJSONLoaderTests.m; sourceTree = "<group>"; };
 		9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecretTests.m; path = Tests/Models/OAKGoogleClientSecretTests.m; sourceTree = "<group>"; };
 		9D8402CC1B06D48F00AD4227 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = App/Controllers/ViewController.xib; sourceTree = "<group>"; };
+		9D8402D01B08327000AD4227 /* OAKDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKDayCell.h; path = App/Views/OAKDayCell/OAKDayCell.h; sourceTree = "<group>"; };
+		9D8402D11B08327000AD4227 /* OAKDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKDayCell.m; path = App/Views/OAKDayCell/OAKDayCell.m; sourceTree = "<group>"; };
+		9D8402D21B08327000AD4227 /* OAKDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKDayCell.xib; path = App/Views/OAKDayCell/OAKDayCell.xib; sourceTree = "<group>"; };
+		9D8402D61B0839B300AD4227 /* NSDate+Monthly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Monthly.h"; path = "App/Models/NSDate+Monthly/NSDate+Monthly.h"; sourceTree = "<group>"; };
+		9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Monthly.m"; path = "App/Models/NSDate+Monthly/NSDate+Monthly.m"; sourceTree = "<group>"; };
+		9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MonthlyTests.m"; path = "Tests/Models/NSDate+MonthlyTests.m"; sourceTree = "<group>"; };
 		BE6A532806F59789CD2C1F1D /* Pods-Oak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.debug.xcconfig"; sourceTree = "<group>"; };
 		F30EB1D42409D837C25FDA4E /* Pods-Oak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8402B81B06765200AD4227 /* Models */,
+				9D8402CE1B08323A00AD4227 /* Views */,
 				9D8402CB1B06D40100AD4227 /* Controllers */,
 			);
 			name = App;
@@ -175,6 +186,7 @@
 		9D8402B81B06765200AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D8402D51B08386300AD4227 /* NSDate+Monthly */,
 				9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */,
 				9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */,
 				9D8402BE1B067ABF00AD4227 /* OAKJSONLoader.h */,
@@ -202,6 +214,7 @@
 		9D8402C51B067DD000AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */,
 				9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */,
 				9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */,
 			);
@@ -216,6 +229,33 @@
 				9D8402CC1B06D48F00AD4227 /* ViewController.xib */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9D8402CE1B08323A00AD4227 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402CF1B08324100AD4227 /* OAKDayCell */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9D8402CF1B08324100AD4227 /* OAKDayCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402D01B08327000AD4227 /* OAKDayCell.h */,
+				9D8402D11B08327000AD4227 /* OAKDayCell.m */,
+				9D8402D21B08327000AD4227 /* OAKDayCell.xib */,
+			);
+			name = OAKDayCell;
+			sourceTree = "<group>";
+		};
+		9D8402D51B08386300AD4227 /* NSDate+Monthly */ = {
+			isa = PBXGroup;
+			children = (
+				9D8402D61B0839B300AD4227 /* NSDate+Monthly.h */,
+				9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */,
+			);
+			name = "NSDate+Monthly";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +343,7 @@
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
+				9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */,
 				9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +399,9 @@
 				9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */,
 				9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */,
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
+				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */,
 				9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8402DB1B0839E300AD4227 /* NSDate+MonthlyTests.m in Sources */,
 				9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */,
 				9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */,
 			);

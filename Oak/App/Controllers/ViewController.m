@@ -11,13 +11,17 @@
 #import <GTLCalendar.h>
 #import "OAKJSONLoader.h"
 #import "OAKGoogleClientSecret.h"
+#import "OAKDayCell.h"
+#import "NSDate+Monthly.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
+NSString * const DayCellIdentifier = @"OAKDayCell";
 
 @interface ViewController () <UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic) NSArray *dates;
 @property (nonatomic) GTLCalendarEvents *calendarEvents;
 
 @property (nonatomic) GTLServiceCalendar *calendarService;
@@ -30,6 +34,8 @@ NSString * const KEYCHAIN_NAME = @"Oak";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSDate *today = [NSDate date];
+    self.dates = [NSDate datesBetween:today.beginningOfMonth and:today.endOfMonth];
     self.calendarEvents = [[GTLCalendarEvents alloc] init];
     
     NSDictionary *secretJSON = [OAKJSONLoader loadJSONForPath:@"client_secret"];
@@ -39,6 +45,10 @@ NSString * const KEYCHAIN_NAME = @"Oak";
     self.calendarService.authorizer = [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:KEYCHAIN_NAME
                                                                                             clientID:self.secret.clientID
                                                                                         clientSecret:self.secret.clientSecret];
+
+    [self.tableView registerNib:[UINib nibWithNibName:DayCellIdentifier bundle:nil] forCellReuseIdentifier:DayCellIdentifier];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.dataSource = self;
 }
@@ -62,8 +72,9 @@ NSString * const KEYCHAIN_NAME = @"Oak";
 
 - (void)fetchEvents {
     GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:@"primary"];
-    query.maxResults = 10;
-    query.timeMin = [GTLDateTime dateTimeWithDate:[NSDate date]
+    query.timeMin = [GTLDateTime dateTimeWithDate:[[NSDate date] beginningOfMonth]
+                                         timeZone:[NSTimeZone localTimeZone]];
+    query.timeMax = [GTLDateTime dateTimeWithDate:[[NSDate date] endOfMonth]
                                          timeZone:[NSTimeZone localTimeZone]];
     query.singleEvents = YES;
     query.orderBy = kGTLCalendarOrderByStartTime;
@@ -110,31 +121,27 @@ NSString * const KEYCHAIN_NAME = @"Oak";
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.calendarEvents.items.count;
+    return self.dates.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GTLCalendarEvent *event = self.calendarEvents.items[indexPath.row];
+    NSDate *date = self.dates[indexPath.row];
     
-    NSString * const ReuseID = @"EventCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:ReuseID];
+    OAKDayCell *cell = [tableView dequeueReusableCellWithIdentifier:DayCellIdentifier forIndexPath:indexPath];
+    [cell setDate:date];
+    
+    NSMutableArray *events = [NSMutableArray array];
+    
+    for (GTLCalendarEvent *event in self.calendarEvents.items) {
+        GTLDateTime *start = event.start.dateTime ?: event.start.date;
+        GTLDateTime *end = event.end.dateTime ?: event.end.date;
+        
+        if (start.date.day <= date.day && end.date.day >= date.day) {
+            [events addObject:event];
+        }
     }
     
-    GTLDateTime *start = event.start.dateTime ?: event.start.date;
-    GTLDateTime *end   = event.end.dateTime   ?: event.end.date;
-    
-    NSString *startString = [NSDateFormatter localizedStringFromDate:start.date
-                                                           dateStyle:NSDateFormatterShortStyle
-                                                           timeStyle:NSDateFormatterShortStyle];
-    NSString *endString = [NSDateFormatter localizedStringFromDate:end.date
-                                                         dateStyle:NSDateFormatterShortStyle
-                                                         timeStyle:NSDateFormatterShortStyle];
-    
-    cell.textLabel.text = event.summary;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", startString, endString];
+    [cell setEvents:events];
     
     return cell;
 }
