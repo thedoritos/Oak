@@ -36,6 +36,10 @@
     XCTAssertEqual([self.today day], 14);
 }
 
+- (void)testGetHour {
+    XCTAssertEqual([self.today hour], 0);
+}
+
 - (void)testGetBeginningOfMonth {
     NSDate *beginning = [self.today beginningOfMonth];
     XCTAssertEqual(beginning.year, 1988);
@@ -60,6 +64,20 @@
     XCTAssertEqual(yesterday.year, 1988);
     XCTAssertEqual(yesterday.month, 2);
     XCTAssertEqual(yesterday.day, 13);
+}
+
+- (void)testAddHour {
+    NSDate *hourLater = [self.today addHour:1];
+    XCTAssertEqual(hourLater.year, 1988);
+    XCTAssertEqual(hourLater.month, 2);
+    XCTAssertEqual(hourLater.day, 14);
+    XCTAssertEqual(hourLater.hour, 1);
+    
+    NSDate *twoHoursAgo = [self.today addHour:-2];
+    XCTAssertEqual(twoHoursAgo.year, 1988);
+    XCTAssertEqual(twoHoursAgo.month, 2);
+    XCTAssertEqual(twoHoursAgo.day, 13);
+    XCTAssertEqual(twoHoursAgo.hour, 22);
 }
 
 - (void)testIsBetween {

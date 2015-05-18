@@ -13,11 +13,13 @@
 - (NSInteger)year;
 - (NSInteger)month;
 - (NSInteger)day;
+- (NSInteger)hour;
 
 - (NSDate *)beginningOfMonth;
 - (NSDate *)endOfMonth;
 
 - (NSDate *)addDay:(NSInteger)day;
+- (NSDate *)addHour:(NSInteger)hour;
 
 - (BOOL)isBetween:(NSDate *)start and:(NSDate *)end;
 
