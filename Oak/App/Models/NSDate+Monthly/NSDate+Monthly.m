@@ -22,6 +22,10 @@
     return [[NSDate defaultCalendar] component:NSCalendarUnitDay fromDate:self];
 }
 
+- (NSInteger)hour {
+    return [[NSDate defaultCalendar] component:NSCalendarUnitHour fromDate:self];
+}
+
 - (NSDate *)beginningOfMonth {
     NSDateComponents *components = [[NSDate defaultCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     components.day = 1;
@@ -38,6 +42,12 @@
 - (NSDate *)addDay:(NSInteger)day {
     NSDateComponents *offset = [[NSDateComponents alloc] init];
     offset.day = day;
+    return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
+}
+
+- (NSDate *)addHour:(NSInteger)hour {
+    NSDateComponents *offset = [[NSDateComponents alloc] init];
+    offset.hour = hour;
     return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
 }
 

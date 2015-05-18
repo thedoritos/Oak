@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <GTMOAuth2ViewControllerTouch.h>
 #import <GTLCalendar.h>
+#import <ActionSheetPicker-3.0/ActionSheetStringPicker.h>
+#import <BlocksKit/BlocksKit.h>
 #import "OAKJSONLoader.h"
 #import "OAKGoogleClientSecret.h"
 #import "OAKDayCell.h"
@@ -17,7 +19,7 @@
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
 
-@interface ViewController () <UITableViewDataSource>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -51,6 +53,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -82,6 +85,31 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     [self.calendarService executeQuery:query
                               delegate:self
                      didFinishSelector:@selector(serviceTicket:finishedWithObject:error:)];
+}
+
+- (void)postEventWithDate:(NSDate *)date period:(NSArray *)period {
+    GTLCalendarEvent *event = [[GTLCalendarEvent alloc] init];
+    
+    GTLCalendarEventDateTime *startDateTime = [[GTLCalendarEventDateTime alloc] init];
+    startDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.firstObject
+                                                  timeZone:[NSTimeZone localTimeZone]];
+    GTLCalendarEventDateTime *endDateTime = [[GTLCalendarEventDateTime alloc] init];
+    endDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.lastObject
+                                                timeZone:[NSTimeZone localTimeZone]];
+    
+    event.start = startDateTime;
+    event.end = endDateTime;
+    
+    event.summary = @"OakFood";
+    
+    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
+    
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticker, id object, NSError *error) {
+        if (error != nil) {
+            [self showAlert:@"Failed to post event." message:error.localizedDescription];
+            return;
+        }
+    }];
 }
 
 #pragma mark - Action Handlers
@@ -144,6 +172,37 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     [cell setEvents:events];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    __block NSDate *date = self.dates[indexPath.row];
+    
+    NSArray *selectablePeriods = @[
+        @[[date addHour:5], [date addHour:9]],
+        @[[date addHour:5], [date addHour:14]],
+        @[[date addHour:7], [date addHour:14]],
+        @[[date addHour:8], [date addHour:14]]
+    ];
+    
+    NSArray *selectableStrings = [selectablePeriods bk_map:^NSString *(NSArray *period) {
+        NSDate *beginning = period.firstObject;
+        NSDate *end = period.lastObject;
+        return [NSString stringWithFormat:@"%ld:00 ~ %ld:00", (long)beginning.hour, (long)end.hour];
+    }];
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"Events"
+                                            rows:selectableStrings
+                                initialSelection:0
+                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
+                                           [self postEventWithDate:date period:selectablePeriods[selectedIndex]];
+                                       }
+                                     cancelBlock:^(ActionSheetStringPicker *picker) {
+                                         
+                                     }
+                                          origin:self.view];
 }
 
 #pragma mark - View Helpers
