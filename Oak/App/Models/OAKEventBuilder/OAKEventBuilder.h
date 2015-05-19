@@ -15,6 +15,8 @@
 @property (nonatomic, copy, readonly) NSDate *startDate;
 @property (nonatomic, copy, readonly) NSDate *endDate;
 
++ (instancetype)builder;
+
 - (instancetype)setSummary:(NSString *)summary;
 - (instancetype)setStartDate:(NSDate *)date;
 - (instancetype)setEndDate:(NSDate *)date;

@@ -10,6 +10,10 @@
 
 @implementation OAKEventBuilder
 
++ (instancetype)builder {
+    return [[OAKEventBuilder alloc] init];
+}
+
 - (instancetype)setSummary:(NSString *)summary {
     _summary = summary;
     return self;

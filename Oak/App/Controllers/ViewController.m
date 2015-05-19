@@ -15,6 +15,7 @@
 #import "OAKGoogleClientSecret.h"
 #import "OAKDayCell.h"
 #import "NSDate+Monthly.h"
+#import "OAKEventBuilder.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -88,19 +89,12 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 }
 
 - (void)postEventWithDate:(NSDate *)date period:(NSArray *)period {
-    GTLCalendarEvent *event = [[GTLCalendarEvent alloc] init];
+    OAKEventBuilder *builder = [OAKEventBuilder builder];
     
-    GTLCalendarEventDateTime *startDateTime = [[GTLCalendarEventDateTime alloc] init];
-    startDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.firstObject
-                                                  timeZone:[NSTimeZone localTimeZone]];
-    GTLCalendarEventDateTime *endDateTime = [[GTLCalendarEventDateTime alloc] init];
-    endDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.lastObject
-                                                timeZone:[NSTimeZone localTimeZone]];
-    
-    event.start = startDateTime;
-    event.end = endDateTime;
-    
-    event.summary = @"OakFood";
+    GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
+                                          setStartDate:period.firstObject]
+                                          setEndDate:period.lastObject]
+                                          build];
     
     GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
     
@@ -124,20 +118,13 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 }
 
 - (void)updateEvent:(GTLCalendarEvent *)existing withDate:(NSDate *)date period:(NSArray *)period {
-    GTLCalendarEvent *event = [[GTLCalendarEvent alloc] init];
+    OAKEventBuilder *builder = [OAKEventBuilder builder];
     
-    GTLCalendarEventDateTime *startDateTime = [[GTLCalendarEventDateTime alloc] init];
-    startDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.firstObject
-                                                  timeZone:[NSTimeZone localTimeZone]];
-    GTLCalendarEventDateTime *endDateTime = [[GTLCalendarEventDateTime alloc] init];
-    endDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.lastObject
-                                                timeZone:[NSTimeZone localTimeZone]];
+    GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
+                                          setStartDate:period.firstObject]
+                                          setEndDate:period.lastObject]
+                                          build];
     
-    event.start = startDateTime;
-    event.end = endDateTime;
-    
-    event.summary = @"OakFood";
-
     GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsUpdateWithObject:event
                                                                     calendarId:@"primary"
                                                                        eventId:existing.identifier];
