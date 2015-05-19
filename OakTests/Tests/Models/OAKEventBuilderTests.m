@@ -10,9 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "OAKEventBuilder.h"
 #import "NSDate+Monthly.h"
-
-#define XCTAssertEqualDates(date1, date2, ...) \
-        XCTAssertEqualWithAccuracy([date1 timeIntervalSinceReferenceDate], [date2 timeIntervalSinceReferenceDate], 0.001, __VA_ARGS__)
+#import "OAKTestHelper.h"
 
 @interface OAKEventBuilderTests : XCTestCase
 

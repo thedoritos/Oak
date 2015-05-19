@@ -16,6 +16,7 @@
 #import "OAKDayCell.h"
 #import "NSDate+Monthly.h"
 #import "OAKEventBuilder.h"
+#import "OAKQueryFactory.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -75,13 +76,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 #pragma mark - Actions
 
 - (void)fetchEvents {
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:@"primary"];
-    query.timeMin = [GTLDateTime dateTimeWithDate:[[NSDate date] beginningOfMonth]
-                                         timeZone:[NSTimeZone localTimeZone]];
-    query.timeMax = [GTLDateTime dateTimeWithDate:[[NSDate date] endOfMonth]
-                                         timeZone:[NSTimeZone localTimeZone]];
-    query.singleEvents = YES;
-    query.orderBy = kGTLCalendarOrderByStartTime;
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
     
     [self.calendarService executeQuery:query
                               delegate:self
@@ -96,7 +92,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createCreateQueryWithEvent:event];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
@@ -125,9 +122,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsUpdateWithObject:event
-                                                                    calendarId:@"primary"
-                                                                       eventId:existing.identifier];
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createUpdateQueryWithEvent:event where:existing.identifier];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
