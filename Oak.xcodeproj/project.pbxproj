@@ -12,6 +12,8 @@
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
+		9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */; };
+		9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -49,6 +51,9 @@
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719C61B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D6BCBD21B0B786100A7E114 /* OAKEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventBuilder.h; path = App/Models/OAKEventBuilder/OAKEventBuilder.h; sourceTree = "<group>"; };
+		9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilder.m; path = App/Models/OAKEventBuilder/OAKEventBuilder.m; sourceTree = "<group>"; };
+		9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilderTests.m; path = Tests/Models/OAKEventBuilderTests.m; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -165,6 +170,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9D6BCBD11B0B784400A7E114 /* OAKEventBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				9D6BCBD21B0B786100A7E114 /* OAKEventBuilder.h */,
+				9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */,
+			);
+			name = OAKEventBuilder;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +200,7 @@
 		9D8402B81B06765200AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D6BCBD11B0B784400A7E114 /* OAKEventBuilder */,
 				9D8402D51B08386300AD4227 /* NSDate+Monthly */,
 				9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */,
 				9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */,
@@ -217,6 +232,7 @@
 				9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */,
 				9D8402C61B067E0B00AD4227 /* OAKJSONLoaderTests.m */,
 				9D8402C81B06845C00AD4227 /* OAKGoogleClientSecretTests.m */,
+				9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -401,6 +417,7 @@
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
 				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */,
 				9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */,
 				9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */,
 			);
@@ -410,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */,
 				9D8402DB1B0839E300AD4227 /* NSDate+MonthlyTests.m in Sources */,
 				9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */,
 				9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */,
@@ -554,6 +572,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/Public/**",
+				);
 				INFOPLIST_FILE = OakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,6 +591,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/Pods/Headers/Public/**",
 				);
 				INFOPLIST_FILE = OakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
