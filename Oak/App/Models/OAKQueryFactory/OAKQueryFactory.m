@@ -11,26 +11,32 @@
 
 @implementation OAKQueryFactory
 
-- (instancetype)initWithDate:(NSDate *)date {
-    self = [super init];
-    if (self) {
-        _date = date;
-    }
-    return self;
++ (instancetype)factory {
+    return [[OAKQueryFactory alloc] init];
 }
 
-- (GTLQueryCalendar *)createIndexQuery {
+- (GTLQueryCalendar *)createIndexQueryWithMonth:(NSDate *)date {
     GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:@"primary"];
     
-    query.timeMin = [GTLDateTime dateTimeWithDate:[self.date beginningOfMonth]
+    query.timeMin = [GTLDateTime dateTimeWithDate:[date beginningOfMonth]
                                          timeZone:[NSTimeZone localTimeZone]];
-    query.timeMax = [GTLDateTime dateTimeWithDate:[self.date endOfMonth]
+    query.timeMax = [GTLDateTime dateTimeWithDate:[date endOfMonth]
                                          timeZone:[NSTimeZone localTimeZone]];
     
     query.singleEvents = YES;
     query.orderBy = kGTLCalendarOrderByStartTime;
     
     return query;
+}
+
+- (GTLQueryCalendar *)createCreateQueryWithEvent:(GTLCalendarEvent *)event {
+    return [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
+}
+
+- (GTLQueryCalendar *)createUpdateQueryWithEvent:(GTLCalendarEvent *)event where:(NSString *)eventId {
+    return [GTLQueryCalendar queryForEventsUpdateWithObject:event
+                                                 calendarId:@"primary"
+                                                    eventId:eventId];
 }
 
 @end

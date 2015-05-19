@@ -76,8 +76,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 #pragma mark - Actions
 
 - (void)fetchEvents {
-    OAKQueryFactory *factory = [[OAKQueryFactory alloc] initWithDate:[NSDate date]];
-    GTLQueryCalendar *query = [factory createIndexQuery];
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
     
     [self.calendarService executeQuery:query
                               delegate:self
@@ -92,7 +92,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createCreateQueryWithEvent:event];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
@@ -121,9 +122,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsUpdateWithObject:event
-                                                                    calendarId:@"primary"
-                                                                       eventId:existing.identifier];
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createUpdateQueryWithEvent:event where:existing.identifier];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
