@@ -16,6 +16,7 @@
 #import "OAKDayCell.h"
 #import "NSDate+Monthly.h"
 #import "OAKEventBuilder.h"
+#import "OAKQueryFactory.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -75,13 +76,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 #pragma mark - Actions
 
 - (void)fetchEvents {
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:@"primary"];
-    query.timeMin = [GTLDateTime dateTimeWithDate:[[NSDate date] beginningOfMonth]
-                                         timeZone:[NSTimeZone localTimeZone]];
-    query.timeMax = [GTLDateTime dateTimeWithDate:[[NSDate date] endOfMonth]
-                                         timeZone:[NSTimeZone localTimeZone]];
-    query.singleEvents = YES;
-    query.orderBy = kGTLCalendarOrderByStartTime;
+    OAKQueryFactory *factory = [[OAKQueryFactory alloc] initWithDate:[NSDate date]];
+    GTLQueryCalendar *query = [factory createIndexQuery];
     
     [self.calendarService executeQuery:query
                               delegate:self
