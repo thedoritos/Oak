@@ -123,6 +123,45 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     }];
 }
 
+- (void)updateEvent:(GTLCalendarEvent *)existing withDate:(NSDate *)date period:(NSArray *)period {
+    GTLCalendarEvent *event = [[GTLCalendarEvent alloc] init];
+    
+    GTLCalendarEventDateTime *startDateTime = [[GTLCalendarEventDateTime alloc] init];
+    startDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.firstObject
+                                                  timeZone:[NSTimeZone localTimeZone]];
+    GTLCalendarEventDateTime *endDateTime = [[GTLCalendarEventDateTime alloc] init];
+    endDateTime.dateTime = [GTLDateTime dateTimeWithDate:period.lastObject
+                                                timeZone:[NSTimeZone localTimeZone]];
+    
+    event.start = startDateTime;
+    event.end = endDateTime;
+    
+    event.summary = @"OakFood";
+
+    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsUpdateWithObject:event
+                                                                    calendarId:@"primary"
+                                                                       eventId:existing.identifier];
+    
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+        if (error != nil) {
+            [self showAlert:@"Failed to update event." message:error.localizedDescription];
+            return;
+        }
+        
+        if (![object isKindOfClass:[GTLCalendarEvent class]]) {
+            [self showAlert:@"Failed to update event." message:@"Invalid object type"];
+            return;
+        }
+        
+        NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
+        [events removeObject:existing];
+        [events addObject:event];
+        self.calendarEvents.items = events;
+        
+        [self.tableView reloadData];
+    }];
+}
+
 #pragma mark - Action Handlers
 
 - (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController
@@ -208,6 +247,25 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                             rows:selectableStrings
                                 initialSelection:0
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
+                                           
+                                           GTLCalendarEvent *matched = [self.calendarEvents.items bk_match:^BOOL(GTLCalendarEvent *event) {
+                                               
+                                               GTLDateTime *start = event.start.dateTime ?: event.start.date;
+                                               GTLDateTime *end = event.end.dateTime ?: event.end.date;
+                                               
+                                               if ([event.summary isEqualToString:@"OakFood"] &&
+                                                   start.date.day <= date.day &&
+                                                   end.date.day >= date.day) {
+                                                   return YES;
+                                               }
+                                               return NO;
+                                           }];
+                                           
+                                           if (matched != nil) {
+                                               [self updateEvent:matched withDate:date period:selectablePeriods[selectedIndex]];
+                                               return;
+                                           }
+                                           
                                            [self postEventWithDate:date period:selectablePeriods[selectedIndex]];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
