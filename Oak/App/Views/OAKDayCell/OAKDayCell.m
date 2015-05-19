@@ -9,7 +9,7 @@
 #import "OAKDayCell.h"
 #import "NSDate+Monthly.h"
 #import <BlocksKit/BlocksKit.h>
-#import <GTLCalendarEvent.h>
+#import <GTLCalendar.h>
 
 @interface OAKDayCell ()
 
@@ -26,7 +26,17 @@
 
 - (void)setEvents:(NSArray *)events {
     self.eventLabel.text = [[events bk_map:^NSString *(GTLCalendarEvent *event) {
-        return event.summary;
+        GTLDateTime *start = event.start.dateTime ?: event.start.date;
+        GTLDateTime *end = event.end.dateTime ?: event.end.date;
+
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"H:mm";
+        
+        return [NSString stringWithFormat:@"%@: %@ ~ %@",
+                event.summary,
+                [formatter stringFromDate:start.date],
+                [formatter stringFromDate:end.date]];
+        
     }] componentsJoinedByString:@"; "];
 }
 
