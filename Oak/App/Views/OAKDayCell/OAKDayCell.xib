@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0g-Of-chE" userLabel="EventLabel">
-                        <rect key="frame" x="35" y="8" width="277" height="27"/>
+                        <rect key="frame" x="40" y="8" width="272" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="b0g-Of-chE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Gya-LL-1L6"/>
-                    <constraint firstItem="b0g-Of-chE" firstAttribute="leading" secondItem="Swj-pg-HfY" secondAttribute="trailing" constant="5" id="Jee-kQ-OYk"/>
+                    <constraint firstItem="b0g-Of-chE" firstAttribute="leading" secondItem="Swj-pg-HfY" secondAttribute="trailing" constant="10" id="Jee-kQ-OYk"/>
                     <constraint firstItem="Swj-pg-HfY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="df6-eW-hiL"/>
                     <constraint firstItem="Swj-pg-HfY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jBt-N3-QAn"/>
                     <constraint firstItem="b0g-Of-chE" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="m6i-Th-a4d"/>
