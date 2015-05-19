@@ -104,11 +104,22 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
     
-    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticker, id object, NSError *error) {
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
             [self showAlert:@"Failed to post event." message:error.localizedDescription];
             return;
         }
+        
+        if (![object isKindOfClass:[GTLCalendarEvent class]]) {
+            [self showAlert:@"Failed to post event." message:@"Invalid object type"];
+            return;
+        }
+        
+        NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
+        [events addObject:event];
+        self.calendarEvents.items = events;
+        
+        [self.tableView reloadData];
     }];
 }
 
