@@ -107,7 +107,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
         }
         
         NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
-        [events addObject:event];
+        [events addObject:object];
         self.calendarEvents.items = events;
         
         [self.tableView reloadData];
@@ -138,7 +138,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
         
         NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
         [events removeObject:existing];
-        [events addObject:event];
+        [events addObject:object];
         self.calendarEvents.items = events;
         
         [self.tableView reloadData];
