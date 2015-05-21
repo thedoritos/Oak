@@ -11,6 +11,7 @@
 
 @interface OAKEvents : NSObject
 
+@property (nonatomic, copy, readonly) NSString *summary;
 @property (nonatomic, copy, readonly) NSArray *items;
 
 - (instancetype)initWithCalendarEvents:(GTLCalendarEvents *)calendarEvents;
@@ -19,6 +20,7 @@
 - (GTLCalendarEvent *)itemAtIndex:(NSUInteger)index;
 
 - (void)add:(GTLCalendarEvent *)item;
+- (void)replace:(GTLCalendarEvent *)existing with:(GTLCalendarEvent *)item;
 
 - (NSArray *)itemsAtDay:(NSDate *)day;
 - (NSArray *)itemsWithSummary:(NSString *)summary;

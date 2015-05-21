@@ -75,6 +75,18 @@
     XCTAssertEqualObjects([_sut itemAtIndex:3], fourth);
 }
 
+- (void)testReplaceEvent {
+    GTLCalendarEvent *newSecond = [[[[[OAKEventBuilder builder]
+                                       setSummary:@"Fourth"]
+                                       setStartDate:[self.today addDay:3]]
+                                       setEndDate:[[self.today addDay:3] addHour:1]]
+                                       build];
+    [_sut replace:_items[1] with:newSecond];
+    
+    XCTAssertEqual(_sut.count, 3);
+    XCTAssertEqualObjects([_sut itemAtIndex:1], newSecond);
+}
+
 - (void)testItemsAtDay {
     XCTAssertEqualArrays([_sut itemsAtDay:self.today], @[_items[0]], @"should filter today's events");
     XCTAssertEqualArrays([_sut itemsAtDay:[self.today addDay:1]], @[_items[1]], @"should filter tomorrow's events");

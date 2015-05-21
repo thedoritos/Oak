@@ -15,15 +15,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _summary = nil;
         _items = @[];
-    }
-    return self;
-}
-
-- (instancetype)initWithEvents:(NSArray *)events {
-    self = [super init];
-    if (self) {
-        _items = events;
     }
     return self;
 }
@@ -31,6 +24,7 @@
 - (instancetype)initWithCalendarEvents:(GTLCalendarEvents *)calendarEvents {
     self = [super init];
     if (self) {
+        _summary = calendarEvents.summary;
         _items = calendarEvents.items;
     }
     return self;
@@ -47,6 +41,14 @@
 - (void)add:(GTLCalendarEvent *)item {
     NSMutableArray *mutableItems = [NSMutableArray arrayWithArray:self.items];
     [mutableItems addObject:item];
+    _items = [NSArray arrayWithArray:mutableItems];
+}
+
+- (void)replace:(GTLCalendarEvent *)existing with:(GTLCalendarEvent *)item {
+    NSMutableArray *mutableItems = [NSMutableArray arrayWithArray:self.items];
+    
+    NSUInteger index = [mutableItems indexOfObject:existing];
+    [mutableItems replaceObjectAtIndex:index withObject:item];
     _items = [NSArray arrayWithArray:mutableItems];
 }
 
