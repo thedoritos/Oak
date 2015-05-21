@@ -14,9 +14,14 @@
 - (NSInteger)month;
 - (NSInteger)day;
 - (NSInteger)hour;
+- (NSInteger)minute;
+- (NSInteger)second;
 
 - (NSDate *)beginningOfMonth;
 - (NSDate *)endOfMonth;
+
+- (NSDate *)beginningOfDay;
+- (NSDate *)endOfDay;
 
 - (NSDate *)addDay:(NSInteger)day;
 - (NSDate *)addHour:(NSInteger)hour;

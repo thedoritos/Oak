@@ -26,6 +26,14 @@
     return [[NSDate defaultCalendar] component:NSCalendarUnitHour fromDate:self];
 }
 
+- (NSInteger)minute {
+    return [[NSDate defaultCalendar] component:NSCalendarUnitMinute fromDate:self];
+}
+
+- (NSInteger)second {
+    return [[NSDate defaultCalendar] component:NSCalendarUnitSecond fromDate:self];
+}
+
 - (NSDate *)beginningOfMonth {
     NSDateComponents *components = [[NSDate defaultCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     components.day = 1;
@@ -37,6 +45,19 @@
                                          matchingUnit:NSCalendarUnitDay
                                                 value:31
                                               options:NSCalendarMatchPreviousTimePreservingSmallerUnits];
+}
+
+- (NSDate *)beginningOfDay {
+    NSDateComponents *components = [[NSDate defaultCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
+    return [[NSDate defaultCalendar] dateFromComponents:components];
+}
+
+- (NSDate *)endOfDay {
+    return [[NSDate defaultCalendar] nextDateAfterDate:self
+                                          matchingHour:23
+                                                minute:59
+                                                second:59
+                                               options:NSCalendarMatchPreviousTimePreservingSmallerUnits];
 }
 
 - (NSDate *)addDay:(NSInteger)day {

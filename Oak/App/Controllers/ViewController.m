@@ -17,6 +17,7 @@
 #import "NSDate+Monthly.h"
 #import "OAKEventBuilder.h"
 #import "OAKQueryFactory.h"
+#import "OAKEvents.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -26,7 +27,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) NSArray *dates;
-@property (nonatomic) GTLCalendarEvents *calendarEvents;
+@property (nonatomic) OAKEvents *events;
 
 @property (nonatomic) GTLServiceCalendar *calendarService;
 @property (nonatomic, copy, readonly) OAKGoogleClientSecret *secret;
@@ -40,7 +41,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     NSDate *today = [NSDate date];
     self.dates = [NSDate datesBetween:today.beginningOfMonth and:today.endOfMonth];
-    self.calendarEvents = [[GTLCalendarEvents alloc] init];
+    self.events = [[OAKEvents alloc] init];
     
     NSDictionary *secretJSON = [OAKJSONLoader loadJSONForPath:@"client_secret"];
     _secret = [[OAKGoogleClientSecret alloc] initWithJSON:secretJSON];
@@ -95,21 +96,13 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     OAKQueryFactory *factory = [OAKQueryFactory factory];
     GTLQueryCalendar *query = [factory createCreateQueryWithEvent:event];
     
-    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *created, NSError *error) {
         if (error != nil) {
             [self showAlert:@"Failed to post event." message:error.localizedDescription];
             return;
         }
         
-        if (![object isKindOfClass:[GTLCalendarEvent class]]) {
-            [self showAlert:@"Failed to post event." message:@"Invalid object type"];
-            return;
-        }
-        
-        NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
-        [events addObject:object];
-        self.calendarEvents.items = events;
-        
+        [self.events add:created];
         [self.tableView reloadData];
     }];
 }
@@ -125,22 +118,13 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     OAKQueryFactory *factory = [OAKQueryFactory factory];
     GTLQueryCalendar *query = [factory createUpdateQueryWithEvent:event where:existing.identifier];
     
-    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *updated, NSError *error) {
         if (error != nil) {
             [self showAlert:@"Failed to update event." message:error.localizedDescription];
             return;
         }
         
-        if (![object isKindOfClass:[GTLCalendarEvent class]]) {
-            [self showAlert:@"Failed to update event." message:@"Invalid object type"];
-            return;
-        }
-        
-        NSMutableArray *events = [NSMutableArray arrayWithArray:self.calendarEvents.items];
-        [events removeObject:existing];
-        [events addObject:object];
-        self.calendarEvents.items = events;
-        
+        [self.events replace:existing with:updated];
         [self.tableView reloadData];
     }];
 }
@@ -175,7 +159,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
         return;
     }
     
-    self.calendarEvents = object;
+    self.events = [[OAKEvents alloc] initWithCalendarEvents:object];
     [self.tableView reloadData];
 }
 
@@ -191,18 +175,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     OAKDayCell *cell = [tableView dequeueReusableCellWithIdentifier:DayCellIdentifier forIndexPath:indexPath];
     [cell setDate:date];
     
-    NSMutableArray *events = [NSMutableArray array];
-    
-    for (GTLCalendarEvent *event in self.calendarEvents.items) {
-        GTLDateTime *start = event.start.dateTime ?: event.start.date;
-        GTLDateTime *end = event.end.dateTime ?: event.end.date;
-        
-        if (start.date.day <= date.day && end.date.day >= date.day) {
-            [events addObject:event];
-        }
-    }
-    
-    [cell setEvents:events];
+    [cell setEvents:[self.events itemsAtDay:date]];
     
     return cell;
 }
@@ -230,20 +203,9 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                             rows:selectableStrings
                                 initialSelection:0
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
+                                           NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
                                            
-                                           GTLCalendarEvent *matched = [self.calendarEvents.items bk_match:^BOOL(GTLCalendarEvent *event) {
-                                               
-                                               GTLDateTime *start = event.start.dateTime ?: event.start.date;
-                                               GTLDateTime *end = event.end.dateTime ?: event.end.date;
-                                               
-                                               if ([event.summary isEqualToString:@"OakFood"] &&
-                                                   start.date.day <= date.day &&
-                                                   end.date.day >= date.day) {
-                                                   return YES;
-                                               }
-                                               return NO;
-                                           }];
-                                           
+                                           GTLCalendarEvent *matched = events.firstObject;
                                            if (matched != nil) {
                                                [self updateEvent:matched withDate:date period:selectablePeriods[selectedIndex]];
                                                return;
@@ -269,10 +231,9 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     [alert show];
 }
 
-- (void)setCalendarEvents:(GTLCalendarEvents *)events {
-    _calendarEvents = events;
-    
-    self.title = _calendarEvents == nil ? @"Events" : events.summary;
+- (void)setEvents:(OAKEvents *)events {
+    _events = events;
+    self.title = events == nil ? @"Events" : events.summary;
 }
 
 @end
