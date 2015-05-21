@@ -40,6 +40,14 @@
     XCTAssertEqual([self.today hour], 0);
 }
 
+- (void)testGetMinute {
+    XCTAssertEqual([self.today minute], 0);
+}
+
+- (void)testGetSecond {
+    XCTAssertEqual([self.today second], 0);
+}
+
 - (void)testGetBeginningOfMonth {
     NSDate *beginning = [self.today beginningOfMonth];
     XCTAssertEqual(beginning.year, 1988);
@@ -52,6 +60,26 @@
     XCTAssertEqual(end.year, 1988);
     XCTAssertEqual(end.month, 2);
     XCTAssertEqual(end.day, 29);
+}
+
+- (void)testGetBeginningOfDay {
+    NSDate *beginning = [self.today beginningOfDay];
+    XCTAssertEqual(beginning.year, 1988);
+    XCTAssertEqual(beginning.month, 2);
+    XCTAssertEqual(beginning.day, 14);
+    XCTAssertEqual(beginning.hour, 0);
+    XCTAssertEqual(beginning.minute, 0);
+    XCTAssertEqual(beginning.second, 0);
+}
+
+- (void)testGetEndOfDay {
+    NSDate *end = [self.today endOfDay];
+    XCTAssertEqual(end.year, 1988);
+    XCTAssertEqual(end.month, 2);
+    XCTAssertEqual(end.day, 14);
+    XCTAssertEqual(end.hour, 23);
+    XCTAssertEqual(end.minute, 59);
+    XCTAssertEqual(end.second, 59);
 }
 
 - (void)testAddDay {
