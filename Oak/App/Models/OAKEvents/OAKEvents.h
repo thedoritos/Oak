@@ -21,5 +21,7 @@
 - (void)add:(GTLCalendarEvent *)item;
 
 - (NSArray *)itemsAtDay:(NSDate *)day;
+- (NSArray *)itemsWithSummary:(NSString *)summary;
+- (NSArray *)itemsWithSummary:(NSString *)summary atDay:(NSDate *)day;
 
 @end

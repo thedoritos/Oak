@@ -66,4 +66,16 @@
     }];
 }
 
+- (NSArray *)itemsWithSummary:(NSString *)summary {
+    return [self.items bk_select:^BOOL(GTLCalendarEvent *event) {
+        return [event.summary isEqualToString:summary];
+    }];
+}
+
+- (NSArray *)itemsWithSummary:(NSString *)summary atDay:(NSDate *)day {
+    return [[self itemsAtDay:day] bk_select:^BOOL(GTLCalendarEvents *event) {
+        return [event.summary isEqualToString:summary];
+    }];
+}
+
 @end

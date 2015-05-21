@@ -18,28 +18,32 @@
 @property (nonatomic) OAKEvents *sut;
 @property (nonatomic) NSArray *items;
 
+@property (nonatomic, copy, readonly) NSCalendar *calendar;
+@property (nonatomic, copy, readonly) NSDate *today;
+
 @end
 
 @implementation OAKEventsTests
 
 - (void)setUp {
-    NSDate *today = [NSDate date];
-    
+    _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    _today = [self.calendar dateWithEra:1 year:1988 month:2 day:14 hour:0 minute:0 second:0 nanosecond:0];
+
     _items = @[
         [[[[[OAKEventBuilder builder]
              setSummary:@"First"]
-             setStartDate:today]
-             setEndDate:[today addHour:1]]
+             setStartDate:self.today]
+             setEndDate:[self.today addHour:1]]
              build],
         [[[[[OAKEventBuilder builder]
              setSummary:@"Second"]
-             setStartDate:[today addDay:1]]
-             setEndDate:[[today addDay:1] addHour:1]]
+             setStartDate:[self.today addDay:1]]
+             setEndDate:[[self.today addDay:1] addHour:1]]
              build],
         [[[[[OAKEventBuilder builder]
              setSummary:@"Third"]
-             setStartDate:[today addDay:2]]
-             setEndDate:[[today addDay:2] addHour:1]]
+             setStartDate:[self.today addDay:2]]
+             setEndDate:[[self.today addDay:2] addHour:1]]
              build]
     ];
     
@@ -60,12 +64,10 @@
 }
 
 - (void)testAddEvent {
-    NSDate *today = [NSDate date];
-    
     GTLCalendarEvent *fourth = [[[[[OAKEventBuilder builder]
                                     setSummary:@"Fourth"]
-                                    setStartDate:[today addDay:3]]
-                                    setEndDate:[[today addDay:3] addHour:1]]
+                                    setStartDate:[self.today addDay:3]]
+                                    setEndDate:[[self.today addDay:3] addHour:1]]
                                     build];
     [_sut add:fourth];
     
@@ -74,10 +76,20 @@
 }
 
 - (void)testItemsAtDay {
-    NSDate *today = [NSDate date];
-    XCTAssertEqualArrays([_sut itemsAtDay:today], @[_items[0]], @"should filter today's events");
-    XCTAssertEqualArrays([_sut itemsAtDay:[today addDay:1]], @[_items[1]], @"should filter tomorrow's events");
-    XCTAssertEqualArrays([_sut itemsAtDay:[today addDay:2]], @[_items[2]], @"should filter the day next tomorrow's events");
+    XCTAssertEqualArrays([_sut itemsAtDay:self.today], @[_items[0]], @"should filter today's events");
+    XCTAssertEqualArrays([_sut itemsAtDay:[self.today addDay:1]], @[_items[1]], @"should filter tomorrow's events");
+    XCTAssertEqualArrays([_sut itemsAtDay:[self.today addDay:2]], @[_items[2]], @"should filter the day next tomorrow's events");
+}
+
+- (void)testItemsWithSummary {
+    XCTAssertEqualArrays([_sut itemsWithSummary:@"First"], @[_items[0]], @"should filter First events");
+    XCTAssertEqualArrays([_sut itemsWithSummary:@"Second"], @[_items[1]], @"should filter Second events");
+    XCTAssertEqualArrays([_sut itemsWithSummary:@"Third"], @[_items[2]], @"should filter Third events");
+}
+
+- (void)testItemsWithSummaryAtDay {
+    XCTAssertEqualArrays([_sut itemsWithSummary:@"First" atDay:self.today], @[_items[0]], @"should filter First events on today");
+    XCTAssertEqualArrays([_sut itemsWithSummary:@"Second" atDay:self.today], @[], @"should filter Second events on today (none)");
 }
 
 @end
