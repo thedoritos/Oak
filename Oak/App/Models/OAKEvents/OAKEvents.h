@@ -20,4 +20,6 @@
 
 - (void)add:(GTLCalendarEvent *)item;
 
+- (NSArray *)itemsAtDay:(NSDate *)day;
+
 @end

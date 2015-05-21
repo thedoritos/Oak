@@ -7,6 +7,8 @@
 //
 
 #import "OAKEvents.h"
+#import <BlocksKit/BlocksKit.h>
+#import "NSDate+Monthly.h"
 
 @implementation OAKEvents
 
@@ -14,6 +16,14 @@
     self = [super init];
     if (self) {
         _items = @[];
+    }
+    return self;
+}
+
+- (instancetype)initWithEvents:(NSArray *)events {
+    self = [super init];
+    if (self) {
+        _items = events;
     }
     return self;
 }
@@ -38,6 +48,22 @@
     NSMutableArray *mutableItems = [NSMutableArray arrayWithArray:self.items];
     [mutableItems addObject:item];
     _items = [NSArray arrayWithArray:mutableItems];
+}
+
+- (NSArray *)itemsAtDay:(NSDate *)day {
+    return [self.items bk_select:^BOOL(GTLCalendarEvent *event) {
+        GTLDateTime *start = event.start.dateTime ?: event.start.date;
+        GTLDateTime *end = event.end.dateTime ?: event.end.date;
+        
+        NSDate *beginningOfDay = [day beginningOfDay];
+        NSDate *endOfDay = [day endOfDay];
+        
+        if ([end.date compare:beginningOfDay] < 0 || [start.date compare:endOfDay] > 0) {
+            return NO;
+        }
+        
+        return YES;
+    }];
 }
 
 @end

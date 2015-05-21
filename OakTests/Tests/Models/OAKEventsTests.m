@@ -73,4 +73,11 @@
     XCTAssertEqualObjects([_sut itemAtIndex:3], fourth);
 }
 
+- (void)testItemsAtDay {
+    NSDate *today = [NSDate date];
+    XCTAssertEqualArrays([_sut itemsAtDay:today], @[_items[0]], @"should filter today's events");
+    XCTAssertEqualArrays([_sut itemsAtDay:[today addDay:1]], @[_items[1]], @"should filter tomorrow's events");
+    XCTAssertEqualArrays([_sut itemsAtDay:[today addDay:2]], @[_items[2]], @"should filter the day next tomorrow's events");
+}
+
 @end
