@@ -20,6 +20,7 @@
 - (GTLCalendarEvent *)itemAtIndex:(NSUInteger)index;
 
 - (void)add:(GTLCalendarEvent *)item;
+- (void)remove:(GTLCalendarEvent *)item;
 - (void)replace:(GTLCalendarEvent *)existing with:(GTLCalendarEvent *)item;
 
 - (NSArray *)itemsAtDay:(NSDate *)day;

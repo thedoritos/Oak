@@ -75,6 +75,13 @@
     XCTAssertEqualObjects([_sut itemAtIndex:3], fourth);
 }
 
+- (void)testRemoveEvent {
+    [_sut remove:_items[1]];
+    
+    XCTAssertEqual(_sut.count, 2);
+    XCTAssertEqualObjects([_sut itemAtIndex:1], _items[2]);
+}
+
 - (void)testReplaceEvent {
     GTLCalendarEvent *newSecond = [[[[[OAKEventBuilder builder]
                                        setSummary:@"Fourth"]
