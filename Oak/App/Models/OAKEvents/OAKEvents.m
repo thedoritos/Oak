@@ -44,6 +44,17 @@
     _items = [NSArray arrayWithArray:mutableItems];
 }
 
+- (void)removeWithId:(NSString *)eventId {
+    NSMutableArray *mutableItems = [NSMutableArray arrayWithArray:self.items];
+    
+    NSArray *matched = [mutableItems bk_select:^BOOL(GTLCalendarEvent *event) {
+        return [event.identifier isEqualToString:eventId];
+    }];
+    [mutableItems removeObjectsInArray:matched];
+    
+    _items = [NSArray arrayWithArray:mutableItems];
+}
+
 - (void)replace:(GTLCalendarEvent *)existing with:(GTLCalendarEvent *)item {
     NSMutableArray *mutableItems = [NSMutableArray arrayWithArray:self.items];
     

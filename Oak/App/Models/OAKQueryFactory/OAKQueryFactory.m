@@ -39,4 +39,9 @@
                                                     eventId:eventId];
 }
 
+- (GTLQueryCalendar *)createDeleteQueryWithEventId:(NSString *)eventId {
+    return [GTLQueryCalendar queryForEventsDeleteWithCalendarId:@"primary"
+                                                        eventId:eventId];
+}
+
 @end

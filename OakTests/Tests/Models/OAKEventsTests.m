@@ -47,6 +47,11 @@
              build]
     ];
     
+    for (NSInteger i = 0; i < _items.count; i++) {
+        GTLCalendarEvent *event = _items[i];
+        event.identifier = [NSString stringWithFormat:@"event_%@", @(i).stringValue];
+    }
+    
     GTLCalendarEvents *events = [[GTLCalendarEvents alloc] init];
     events.items = _items;
     
@@ -73,6 +78,13 @@
     
     XCTAssertEqual(_sut.count, 4);
     XCTAssertEqualObjects([_sut itemAtIndex:3], fourth);
+}
+
+- (void)testRemoveEvent {
+    [_sut removeWithId:@"event_1"];
+    
+    XCTAssertEqual(_sut.count, 2);
+    XCTAssertEqualObjects([_sut itemAtIndex:1], _items[2]);
 }
 
 - (void)testReplaceEvent {

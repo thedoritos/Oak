@@ -60,4 +60,12 @@
     XCTAssertEqualObjects(query.calendarId, @"primary", @"should create query for defaut calendar");
 }
 
+- (void)testCreateDeleteQuery {
+    NSString *eventId = @"abcd1234";
+    GTLQueryCalendar *query = [_sut createDeleteQueryWithEventId:eventId];
+    
+    XCTAssertEqualObjects(query.calendarId, @"primary", @"should create query for defaut calendar");
+    XCTAssertEqualObjects(query.eventId, eventId, @"should create query for the event");
+}
+
 @end

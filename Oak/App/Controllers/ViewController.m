@@ -129,6 +129,21 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     }];
 }
 
+- (void)deleteEventWithId:(NSString *)eventId {
+    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    GTLQueryCalendar *query = [factory createDeleteQueryWithEventId:eventId];
+    
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+        if (error != nil) {
+            [self showAlert:@"Failed to delete event." message:error.localizedDescription];
+            return;
+        }
+        
+        [self.events removeWithId:eventId];
+        [self.tableView reloadData];
+    }];
+}
+
 #pragma mark - Action Handlers
 
 - (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController
@@ -217,6 +232,29 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                          
                                      }
                                           origin:self.view];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDate *date = self.dates[indexPath.row];
+    NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
+    
+    return events.count > 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        __block NSDate *date = self.dates[indexPath.row];
+        
+        NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
+        
+        GTLCalendarEvent *matched = events.firstObject;
+        if (matched != nil) {
+            [self deleteEventWithId:matched.identifier];
+            return;
+        }
+    }
+    
+    [tableView reloadData];
 }
 
 #pragma mark - View Helpers
