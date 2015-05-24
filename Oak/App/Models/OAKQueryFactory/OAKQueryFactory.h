@@ -18,5 +18,6 @@
 - (GTLQueryCalendar *)createIndexQueryWithMonth:(NSDate *)date;
 - (GTLQueryCalendar *)createCreateQueryWithEvent:(GTLCalendarEvent *)event;
 - (GTLQueryCalendar *)createUpdateQueryWithEvent:(GTLCalendarEvent *)event where:(NSString *)eventId;
+- (GTLQueryCalendar *)createDeleteQueryWithEventId:(NSString *)eventId;
 
 @end
