@@ -237,7 +237,11 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                            [self postEventWithDate:date period:selectablePeriods[selectedIndex]];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
-                                         
+                                         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+                                         if (selectedIndexPath == nil) {
+                                             return;
+                                         }
+                                         [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
                                      }
                                           origin:self.view];
 }
