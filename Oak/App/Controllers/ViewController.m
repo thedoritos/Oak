@@ -82,9 +82,18 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     OAKQueryFactory *factory = [OAKQueryFactory factory];
     GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
-    [self.calendarService executeQuery:query
-                              delegate:self
-                     didFinishSelector:@selector(serviceTicket:finishedWithObject:error:)];
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvents *fetched, NSError *error) {
+        if (error != nil) {
+            NSLog(@"Failed to fetch events with error: %@", error.localizedDescription);
+            
+            [self dismissProgressWithError];
+            return;
+        }
+        
+        self.events = [[OAKEvents alloc] initWithCalendarEvents:fetched];
+        [self.tableView reloadData];
+        [self dismissProgressWithSuccess];
+    }];
 }
 
 - (void)postEventWithDate:(NSDate *)date period:(NSArray *)period {
@@ -175,29 +184,6 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     self.calendarService.authorizer = authResult;
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)serviceTicket:(GTLServiceTicket *)ticket
-   finishedWithObject:(id)object
-                error:(NSError *)error {
-    
-    if (error != nil) {
-        NSLog(@"Failed to fetch events with error: %@", error.localizedDescription);
-        
-        [self dismissProgressWithError];
-        return;
-    }
-    
-    if (![object isKindOfClass:[GTLCalendarEvents class]]) {
-        NSLog(@"Failed to fetch events with error: %@", @"Invalid object type");
-        
-        [self dismissProgressWithError];
-        return;
-    }
-    
-    self.events = [[OAKEvents alloc] initWithCalendarEvents:object];
-    [self.tableView reloadData];
-    [self dismissProgressWithSuccess];
 }
 
 #pragma mark - UITableViewDataSource
