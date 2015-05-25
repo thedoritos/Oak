@@ -11,6 +11,7 @@
 #import <GTLCalendar.h>
 #import <ActionSheetPicker-3.0/ActionSheetStringPicker.h>
 #import <BlocksKit/BlocksKit.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "OAKJSONLoader.h"
 #import "OAKGoogleClientSecret.h"
 #import "OAKDayCell.h"
@@ -77,15 +78,27 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 #pragma mark - Actions
 
 - (void)fetchEvents {
+    [self showProgress:@"Receiving..."];
+    
     OAKQueryFactory *factory = [OAKQueryFactory factory];
     GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
-    
-    [self.calendarService executeQuery:query
-                              delegate:self
-                     didFinishSelector:@selector(serviceTicket:finishedWithObject:error:)];
+    [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvents *fetched, NSError *error) {
+        if (error != nil) {
+            NSLog(@"Failed to fetch events with error: %@", error.localizedDescription);
+            
+            [self dismissProgressWithError];
+            return;
+        }
+        
+        self.events = [[OAKEvents alloc] initWithCalendarEvents:fetched];
+        [self.tableView reloadData];
+        [self dismissProgressWithSuccess];
+    }];
 }
 
 - (void)postEventWithDate:(NSDate *)date period:(NSArray *)period {
+    [self showProgress:@"Creating..."];
+    
     OAKEventBuilder *builder = [OAKEventBuilder builder];
     
     GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
@@ -98,16 +111,21 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *created, NSError *error) {
         if (error != nil) {
-            [self showAlert:@"Failed to post event." message:error.localizedDescription];
+            NSLog(@"Failed to post event with error: %@", error.localizedDescription);
+            
+            [self dismissProgressWithError];
             return;
         }
         
         [self.events add:created];
         [self.tableView reloadData];
+        [self dismissProgressWithSuccess];
     }];
 }
 
 - (void)updateEvent:(GTLCalendarEvent *)existing withDate:(NSDate *)date period:(NSArray *)period {
+    [self showProgress:@"Updating..."];
+    
     OAKEventBuilder *builder = [OAKEventBuilder builder];
     
     GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
@@ -120,27 +138,35 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *updated, NSError *error) {
         if (error != nil) {
-            [self showAlert:@"Failed to update event." message:error.localizedDescription];
+            NSLog(@"Failed to update event with error: %@", error.localizedDescription);
+            
+            [self dismissProgressWithError];
             return;
         }
         
         [self.events replace:existing with:updated];
         [self.tableView reloadData];
+        [self dismissProgressWithSuccess];
     }];
 }
 
 - (void)deleteEventWithId:(NSString *)eventId {
+    [self showProgress:@"Deleting..."];
+    
     OAKQueryFactory *factory = [OAKQueryFactory factory];
     GTLQueryCalendar *query = [factory createDeleteQueryWithEventId:eventId];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
         if (error != nil) {
-            [self showAlert:@"Failed to delete event." message:error.localizedDescription];
+            NSLog(@"Failed to delete event with error: %@", error.localizedDescription);
+            
+            [self dismissProgressWithError];
             return;
         }
         
         [self.events removeWithId:eventId];
         [self.tableView reloadData];
+        [self dismissProgressWithSuccess];
     }];
 }
 
@@ -158,24 +184,6 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     
     self.calendarService.authorizer = authResult;
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)serviceTicket:(GTLServiceTicket *)ticket
-   finishedWithObject:(id)object
-                error:(NSError *)error {
-    
-    if (error != nil) {
-        [self showAlert:@"Failed to fetch events." message:error.localizedDescription];
-        return;
-    }
-    
-    if (![object isKindOfClass:[GTLCalendarEvents class]]) {
-        [self showAlert:@"Failed to fetch events." message:@"Invalid object type"];
-        return;
-    }
-    
-    self.events = [[OAKEvents alloc] initWithCalendarEvents:object];
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -229,7 +237,11 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                            [self postEventWithDate:date period:selectablePeriods[selectedIndex]];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
-                                         
+                                         NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+                                         if (selectedIndexPath == nil) {
+                                             return;
+                                         }
+                                         [self.tableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
                                      }
                                           origin:self.view];
 }
@@ -267,6 +279,22 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                              cancelButtonTitle:@"OK"
                              otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)showProgress:(NSString *)title {
+    [SVProgressHUD showWithStatus:title maskType:SVProgressHUDMaskTypeBlack];
+}
+
+- (void)dismissProgressWithSuccess {
+    [SVProgressHUD showSuccessWithStatus:@"Success"];
+}
+
+- (void)dismissProgressWithError {
+    [SVProgressHUD showErrorWithStatus:@"Failed"];
+}
+
+- (void)dismissProgress {
+    [SVProgressHUD dismiss];
 }
 
 - (void)setEvents:(OAKEvents *)events {
