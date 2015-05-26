@@ -4,6 +4,7 @@ target 'Oak' do
 
   # Controls
   pod 'ActionSheetPicker-3.0'
+  pod 'REMenu'
   pod 'SVProgressHUD'
 end
 
