@@ -8,6 +8,7 @@ target 'Oak' do
 end
 
 target 'OakTests' do
-
+  pod 'Specta'
+  pod 'Expecta'
 end
 
