@@ -11,6 +11,7 @@
 #import <GTLCalendar.h>
 #import <ActionSheetPicker-3.0/ActionSheetStringPicker.h>
 #import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "OAKJSONLoader.h"
 #import "OAKGoogleClientSecret.h"
@@ -19,6 +20,8 @@
 #import "OAKEventBuilder.h"
 #import "OAKQueryFactory.h"
 #import "OAKEvents.h"
+#import "MenuViewController.h"
+#import "OAKCalendarService.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -27,15 +30,24 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic) NSString *calendarID;
+
 @property (nonatomic) NSArray *dates;
 @property (nonatomic) OAKEvents *events;
 
-@property (nonatomic) GTLServiceCalendar *calendarService;
-@property (nonatomic, copy, readonly) OAKGoogleClientSecret *secret;
+@property (nonatomic) OAKCalendarService *calendarService;
 
 @end
 
 @implementation ViewController
+
+- (instancetype)initWithCalendarID:(NSString *)calendarID {
+    self = [super init];
+    if (self) {
+        self.calendarID = calendarID;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,34 +56,37 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     self.dates = [NSDate datesBetween:today.beginningOfMonth and:today.endOfMonth];
     self.events = [[OAKEvents alloc] init];
     
-    NSDictionary *secretJSON = [OAKJSONLoader loadJSONForPath:@"client_secret"];
-    _secret = [[OAKGoogleClientSecret alloc] initWithJSON:secretJSON];
-    
-    self.calendarService = [[GTLServiceCalendar alloc] init];
-    self.calendarService.authorizer = [GTMOAuth2ViewControllerTouch authForGoogleFromKeychainForName:KEYCHAIN_NAME
-                                                                                            clientID:self.secret.clientID
-                                                                                        clientSecret:self.secret.clientSecret];
+    self.calendarService = [OAKCalendarService sharedService];
 
     [self.tableView registerNib:[UINib nibWithNibName:DayCellIdentifier bundle:nil] forCellReuseIdentifier:DayCellIdentifier];
-    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks handler:^(id sender) {
+        MenuViewController *menu = (MenuViewController *) self.navigationController;
+        [menu toggleMenu];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (![self.calendarService.authorizer canAuthorize]) {
-        UIViewController *authViewController = [[GTMOAuth2ViewControllerTouch alloc] initWithScope:kGTLAuthScopeCalendar
-                                                                                          clientID:self.secret.clientID
-                                                                                      clientSecret:self.secret.clientSecret
-                                                                                  keychainItemName:KEYCHAIN_NAME
-                                                                                          delegate:self
-                                                                                  finishedSelector:@selector(viewController:finishedWithAuth:error:)];
-        [self presentViewController:authViewController animated:YES completion:nil];
-        return;
+    [super viewDidAppear:animated];
+    
+    if (!self.calendarService.isAuthorized) {
+        UIViewController *authorizer = [self.calendarService createAuthorizerWithCompletionHandler:^{
+            [self viewDidAuthorize];
+        } failure:^(NSError *error) {
+            [self showAlert:@"Failed to authenticate" message:error.localizedDescription];
+        }];
+        
+        [self presentViewController:authorizer animated:YES completion:nil];
     }
     
+    [self viewDidAuthorize];
+}
+
+- (void)viewDidAuthorize {
     [self fetchEvents];
 }
 
@@ -80,7 +95,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 - (void)fetchEvents {
     [self showProgress:@"Receiving..."];
     
-    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    OAKQueryFactory *factory = [OAKQueryFactory factoryWithCalendarID:self.calendarID];
     GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvents *fetched, NSError *error) {
         if (error != nil) {
@@ -106,7 +121,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    OAKQueryFactory *factory = [OAKQueryFactory factoryWithCalendarID:self.calendarID];
     GTLQueryCalendar *query = [factory createCreateQueryWithEvent:event];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *created, NSError *error) {
@@ -133,7 +148,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
                                           setEndDate:period.lastObject]
                                           build];
     
-    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    OAKQueryFactory *factory = [OAKQueryFactory factoryWithCalendarID:self.calendarID];
     GTLQueryCalendar *query = [factory createUpdateQueryWithEvent:event where:existing.identifier];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvent *updated, NSError *error) {
@@ -153,7 +168,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 - (void)deleteEventWithId:(NSString *)eventId {
     [self showProgress:@"Deleting..."];
     
-    OAKQueryFactory *factory = [OAKQueryFactory factory];
+    OAKQueryFactory *factory = [OAKQueryFactory factoryWithCalendarID:self.calendarID];
     GTLQueryCalendar *query = [factory createDeleteQueryWithEventId:eventId];
     
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
@@ -168,22 +183,6 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
         [self.tableView reloadData];
         [self dismissProgressWithSuccess];
     }];
-}
-
-#pragma mark - Action Handlers
-
-- (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController
-      finishedWithAuth:(GTMOAuth2Authentication *)authResult
-                 error:(NSError *)error {
-    
-    if (error != nil) {
-        self.calendarService.authorizer = nil;
-        [self showAlert:@"Failed to authenticate" message:error.localizedDescription];
-        return;
-    }
-    
-    self.calendarService.authorizer = authResult;
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource

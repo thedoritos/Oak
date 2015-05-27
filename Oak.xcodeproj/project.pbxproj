@@ -13,12 +13,15 @@
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
+		9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */; };
 		9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */; };
 		9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */; };
 		9D6BCBDA1B0B95E000A7E114 /* OAKQueryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD91B0B95E000A7E114 /* OAKQueryFactory.m */; };
 		9D6BCBDC1B0B97E300A7E114 /* OAKQueryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBDB1B0B97E300A7E114 /* OAKQueryFactoryTests.m */; };
 		9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */; };
 		9D727C001B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */; };
+		9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727C161B14AF7100BC76B3 /* MenuViewController.m */; };
+		9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D727C171B14AF7100BC76B3 /* MenuViewController.xib */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -60,6 +63,8 @@
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719C61B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D5B93D11B15F2BA004EAE56 /* OAKCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKCalendarService.h; path = App/Models/OAKCalendarService/OAKCalendarService.h; sourceTree = "<group>"; };
+		9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarService.m; path = App/Models/OAKCalendarService/OAKCalendarService.m; sourceTree = "<group>"; };
 		9D6BCBD21B0B786100A7E114 /* OAKEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventBuilder.h; path = App/Models/OAKEventBuilder/OAKEventBuilder.h; sourceTree = "<group>"; };
 		9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilder.m; path = App/Models/OAKEventBuilder/OAKEventBuilder.m; sourceTree = "<group>"; };
 		9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilderTests.m; path = Tests/Models/OAKEventBuilderTests.m; sourceTree = "<group>"; };
@@ -70,6 +75,9 @@
 		9D727BFC1B147F2100BC76B3 /* OAKCalendarQueryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKCalendarQueryFactory.h; path = App/Models/OAKCalendarQueryFactory/OAKCalendarQueryFactory.h; sourceTree = "<group>"; };
 		9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarQueryFactory.m; path = App/Models/OAKCalendarQueryFactory/OAKCalendarQueryFactory.m; sourceTree = "<group>"; };
 		9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarQueryFactoryTests.m; path = Tests/Models/OAKCalendarQueryFactoryTests.m; sourceTree = "<group>"; };
+		9D727C151B14AF7100BC76B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = App/Controllers/MenuViewController/MenuViewController.h; sourceTree = "<group>"; };
+		9D727C161B14AF7100BC76B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = App/Controllers/MenuViewController/MenuViewController.m; sourceTree = "<group>"; };
+		9D727C171B14AF7100BC76B3 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = App/Controllers/MenuViewController/MenuViewController.xib; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -194,6 +202,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9D5B93D01B15F1CA004EAE56 /* OAKCalendarService */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B93D11B15F2BA004EAE56 /* OAKCalendarService.h */,
+				9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */,
+			);
+			name = OAKCalendarService;
+			sourceTree = "<group>";
+		};
 		9D6BCBD11B0B784400A7E114 /* OAKEventBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +246,16 @@
 			name = OAKCalendarQueryFactory;
 			sourceTree = "<group>";
 		};
+		9D727C141B14AF3F00BC76B3 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D727C151B14AF7100BC76B3 /* MenuViewController.h */,
+				9D727C161B14AF7100BC76B3 /* MenuViewController.m */,
+				9D727C171B14AF7100BC76B3 /* MenuViewController.xib */,
+			);
+			name = MenuViewController;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +277,7 @@
 		9D8402B81B06765200AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D5B93D01B15F1CA004EAE56 /* OAKCalendarService */,
 				9D727BFB1B147EE600BC76B3 /* OAKCalendarQueryFactory */,
 				9DAA05DC1B0CEADA009C026D /* OAKEvents */,
 				9D6BCBD71B0B95BF00A7E114 /* OAKQueryFactory */,
@@ -297,6 +325,7 @@
 		9D8402CB1B06D40100AD4227 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D727C141B14AF3F00BC76B3 /* MenuViewController */,
 				9D4719B21B0578B800AAF8FE /* ViewController.h */,
 				9D4719B31B0578B800AAF8FE /* ViewController.m */,
 				9D8402CC1B06D48F00AD4227 /* ViewController.xib */,
@@ -425,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
+				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
 				9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */,
@@ -516,7 +546,9 @@
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
 				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */,
 				9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */,
+				9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */,
 				9DAA05DF1B0CEAEF009C026D /* OAKEvents.m in Sources */,
 				9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */,
 				9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */,
