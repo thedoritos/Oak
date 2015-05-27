@@ -14,6 +14,7 @@
 @interface OAKQueryFactoryTests : XCTestCase
 
 @property (nonatomic) NSCalendar *calendar;
+@property (nonatomic) NSString *calendarID;
 
 @property (nonatomic, copy, readonly) NSDate *today;
 @property (nonatomic, copy, readonly) NSDate *beginningOfMonth;
@@ -34,13 +35,14 @@
     _beginningOfMonth = [self.calendar dateWithEra:1 year:1988 month:2 day:1  hour:0 minute:0 second:0 nanosecond:0];
     _endOfMonth       = [self.calendar dateWithEra:1 year:1988 month:2 day:29 hour:0 minute:0 second:0 nanosecond:0];
     
-    _sut = [[OAKQueryFactory alloc] init];
+    _calendarID = @"humour studio";
+    _sut = [[OAKQueryFactory alloc] initWithCalendarID:self.calendarID];
 }
 
 - (void)testCreateIndexQuery {
     GTLQueryCalendar *query = [_sut createIndexQueryWithMonth:self.today];
     
-    XCTAssertEqualObjects(query.calendarId, @"primary",            @"should create query for defaut calendar");
+    XCTAssertEqualObjects(query.calendarId, self.calendarID,       @"should create query for calendar");
     XCTAssertEqualDates(query.timeMin.date, self.beginningOfMonth, @"should set beginning of range");
     XCTAssertEqualDates(query.timeMax.date, self.endOfMonth,       @"should set end of range");
 }
@@ -49,7 +51,7 @@
     GTLCalendarEvent *event = [[GTLCalendarEvent alloc] init];
     GTLQueryCalendar *query = [_sut createCreateQueryWithEvent:event];
     
-    XCTAssertEqualObjects(query.calendarId, @"primary", @"should create query for defaut calendar");
+    XCTAssertEqualObjects(query.calendarId, self.calendarID, @"should create query for calendar");
 }
 
 - (void)testCreateUpdateQuery {
@@ -57,14 +59,14 @@
     NSString *eventId = @"abcd1234";
     GTLQueryCalendar *query = [_sut createUpdateQueryWithEvent:event where:eventId];
     
-    XCTAssertEqualObjects(query.calendarId, @"primary", @"should create query for defaut calendar");
+    XCTAssertEqualObjects(query.calendarId, self.calendarID, @"should create query for calendar");
 }
 
 - (void)testCreateDeleteQuery {
     NSString *eventId = @"abcd1234";
     GTLQueryCalendar *query = [_sut createDeleteQueryWithEventId:eventId];
     
-    XCTAssertEqualObjects(query.calendarId, @"primary", @"should create query for defaut calendar");
+    XCTAssertEqualObjects(query.calendarId, self.calendarID, @"should create query for calendar");
     XCTAssertEqualObjects(query.eventId, eventId, @"should create query for the event");
 }
 
