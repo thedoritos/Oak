@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A072CE50DFC9CD4E8EEAFE /* libPods-OakTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229E503A0BFDD28FB1F947DC /* libPods-OakTests.a */; };
 		9D4719AE1B0578B800AAF8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719AD1B0578B800AAF8FE /* main.m */; };
 		9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B01B0578B800AAF8FE /* AppDelegate.m */; };
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
+		9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */; };
 		9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */; };
 		9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */; };
 		9D6BCBDA1B0B95E000A7E114 /* OAKQueryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD91B0B95E000A7E114 /* OAKQueryFactory.m */; };
 		9D6BCBDC1B0B97E300A7E114 /* OAKQueryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBDB1B0B97E300A7E114 /* OAKQueryFactoryTests.m */; };
+		9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */; };
+		9D727C001B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */; };
+		9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727C161B14AF7100BC76B3 /* MenuViewController.m */; };
+		9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D727C171B14AF7100BC76B3 /* MenuViewController.xib */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -43,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20082BB7AEB0DE690BB6BE22 /* Pods-OakTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OakTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OakTests/Pods-OakTests.debug.xcconfig"; sourceTree = "<group>"; };
+		229E503A0BFDD28FB1F947DC /* libPods-OakTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OakTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		973D25785BB4292EC1E31D13 /* libPods-Oak.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oak.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719A81B0578B800AAF8FE /* Oak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719AC1B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +63,8 @@
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719C61B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D5B93D11B15F2BA004EAE56 /* OAKCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKCalendarService.h; path = App/Models/OAKCalendarService/OAKCalendarService.h; sourceTree = "<group>"; };
+		9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarService.m; path = App/Models/OAKCalendarService/OAKCalendarService.m; sourceTree = "<group>"; };
 		9D6BCBD21B0B786100A7E114 /* OAKEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventBuilder.h; path = App/Models/OAKEventBuilder/OAKEventBuilder.h; sourceTree = "<group>"; };
 		9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilder.m; path = App/Models/OAKEventBuilder/OAKEventBuilder.m; sourceTree = "<group>"; };
 		9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventBuilderTests.m; path = Tests/Models/OAKEventBuilderTests.m; sourceTree = "<group>"; };
@@ -62,6 +72,12 @@
 		9D6BCBD91B0B95E000A7E114 /* OAKQueryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKQueryFactory.m; path = App/Models/OAKQueryFactory/OAKQueryFactory.m; sourceTree = "<group>"; };
 		9D6BCBDB1B0B97E300A7E114 /* OAKQueryFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKQueryFactoryTests.m; path = Tests/Models/OAKQueryFactoryTests.m; sourceTree = "<group>"; };
 		9D6BCBDE1B0B9A4900A7E114 /* OAKTestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OAKTestHelper.h; path = Tests/Helpers/OAKTestHelper.h; sourceTree = "<group>"; };
+		9D727BFC1B147F2100BC76B3 /* OAKCalendarQueryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKCalendarQueryFactory.h; path = App/Models/OAKCalendarQueryFactory/OAKCalendarQueryFactory.h; sourceTree = "<group>"; };
+		9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarQueryFactory.m; path = App/Models/OAKCalendarQueryFactory/OAKCalendarQueryFactory.m; sourceTree = "<group>"; };
+		9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarQueryFactoryTests.m; path = Tests/Models/OAKCalendarQueryFactoryTests.m; sourceTree = "<group>"; };
+		9D727C151B14AF7100BC76B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = App/Controllers/MenuViewController/MenuViewController.h; sourceTree = "<group>"; };
+		9D727C161B14AF7100BC76B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = App/Controllers/MenuViewController/MenuViewController.m; sourceTree = "<group>"; };
+		9D727C171B14AF7100BC76B3 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = App/Controllers/MenuViewController/MenuViewController.xib; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -81,6 +97,7 @@
 		9DAA05DD1B0CEAEF009C026D /* OAKEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEvents.h; path = App/Models/OAKEvents/OAKEvents.h; sourceTree = "<group>"; };
 		9DAA05DE1B0CEAEF009C026D /* OAKEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEvents.m; path = App/Models/OAKEvents/OAKEvents.m; sourceTree = "<group>"; };
 		BE6A532806F59789CD2C1F1D /* Pods-Oak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.debug.xcconfig"; sourceTree = "<group>"; };
+		D8DD1C63E44F15CE105D256F /* Pods-OakTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OakTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OakTests/Pods-OakTests.release.xcconfig"; sourceTree = "<group>"; };
 		F30EB1D42409D837C25FDA4E /* Pods-Oak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oak/Pods-Oak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A072CE50DFC9CD4E8EEAFE /* libPods-OakTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				973D25785BB4292EC1E31D13 /* libPods-Oak.a */,
+				229E503A0BFDD28FB1F947DC /* libPods-OakTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +135,8 @@
 			children = (
 				BE6A532806F59789CD2C1F1D /* Pods-Oak.debug.xcconfig */,
 				F30EB1D42409D837C25FDA4E /* Pods-Oak.release.xcconfig */,
+				20082BB7AEB0DE690BB6BE22 /* Pods-OakTests.debug.xcconfig */,
+				D8DD1C63E44F15CE105D256F /* Pods-OakTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -181,6 +202,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9D5B93D01B15F1CA004EAE56 /* OAKCalendarService */ = {
+			isa = PBXGroup;
+			children = (
+				9D5B93D11B15F2BA004EAE56 /* OAKCalendarService.h */,
+				9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */,
+			);
+			name = OAKCalendarService;
+			sourceTree = "<group>";
+		};
 		9D6BCBD11B0B784400A7E114 /* OAKEventBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +237,25 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		9D727BFB1B147EE600BC76B3 /* OAKCalendarQueryFactory */ = {
+			isa = PBXGroup;
+			children = (
+				9D727BFC1B147F2100BC76B3 /* OAKCalendarQueryFactory.h */,
+				9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */,
+			);
+			name = OAKCalendarQueryFactory;
+			sourceTree = "<group>";
+		};
+		9D727C141B14AF3F00BC76B3 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D727C151B14AF7100BC76B3 /* MenuViewController.h */,
+				9D727C161B14AF7100BC76B3 /* MenuViewController.m */,
+				9D727C171B14AF7100BC76B3 /* MenuViewController.xib */,
+			);
+			name = MenuViewController;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +277,8 @@
 		9D8402B81B06765200AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D5B93D01B15F1CA004EAE56 /* OAKCalendarService */,
+				9D727BFB1B147EE600BC76B3 /* OAKCalendarQueryFactory */,
 				9DAA05DC1B0CEADA009C026D /* OAKEvents */,
 				9D6BCBD71B0B95BF00A7E114 /* OAKQueryFactory */,
 				9D6BCBD11B0B784400A7E114 /* OAKEventBuilder */,
@@ -266,6 +317,7 @@
 				9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */,
 				9D6BCBDB1B0B97E300A7E114 /* OAKQueryFactoryTests.m */,
 				9DAA05DA1B0CEAC2009C026D /* OAKEventsTests.m */,
+				9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -273,6 +325,7 @@
 		9D8402CB1B06D40100AD4227 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D727C141B14AF3F00BC76B3 /* MenuViewController */,
 				9D4719B21B0578B800AAF8FE /* ViewController.h */,
 				9D4719B31B0578B800AAF8FE /* ViewController.m */,
 				9D8402CC1B06D48F00AD4227 /* ViewController.xib */,
@@ -342,9 +395,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D4719CE1B0578B800AAF8FE /* Build configuration list for PBXNativeTarget "OakTests" */;
 			buildPhases = (
+				94E1BB067E1E16C4D38D6BAD /* Check Pods Manifest.lock */,
 				9D4719BD1B0578B800AAF8FE /* Sources */,
 				9D4719BE1B0578B800AAF8FE /* Frameworks */,
 				9D4719BF1B0578B800AAF8FE /* Resources */,
+				3861CCA3902A1CB06EBFA952 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
+				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
 				9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */,
@@ -417,6 +473,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3861CCA3902A1CB06EBFA952 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OakTests/Pods-OakTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		793C8C229AB5FAD930B5BF99 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +518,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oak/Pods-Oak-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		94E1BB067E1E16C4D38D6BAD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -460,6 +546,9 @@
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
 				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */,
+				9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */,
+				9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */,
 				9DAA05DF1B0CEAEF009C026D /* OAKEvents.m in Sources */,
 				9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */,
 				9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */,
@@ -474,6 +563,7 @@
 				9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */,
 				9D6BCBDC1B0B97E300A7E114 /* OAKQueryFactoryTests.m in Sources */,
 				9D8402DB1B0839E300AD4227 /* NSDate+MonthlyTests.m in Sources */,
+				9D727C001B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m in Sources */,
 				9D8402C91B06845C00AD4227 /* OAKGoogleClientSecretTests.m in Sources */,
 				9DAA05DB1B0CEAC2009C026D /* OAKEventsTests.m in Sources */,
 				9D8402C71B067E0B00AD4227 /* OAKJSONLoaderTests.m in Sources */,
@@ -608,6 +698,7 @@
 		};
 		9D4719CF1B0578B800AAF8FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20082BB7AEB0DE690BB6BE22 /* Pods-OakTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -632,6 +723,7 @@
 		};
 		9D4719D01B0578B800AAF8FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8DD1C63E44F15CE105D256F /* Pods-OakTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

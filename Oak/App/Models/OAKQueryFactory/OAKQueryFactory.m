@@ -9,14 +9,28 @@
 #import "OAKQueryFactory.h"
 #import "NSDate+Monthly.h"
 
+@interface OAKQueryFactory ()
+
+@property (nonatomic, copy, readonly) NSString *calendarID;
+
+@end
+
 @implementation OAKQueryFactory
 
-+ (instancetype)factory {
-    return [[OAKQueryFactory alloc] init];
++ (instancetype)factoryWithCalendarID:(NSString *)calendarID {
+    return [[OAKQueryFactory alloc] initWithCalendarID:calendarID];
+}
+
+- (instancetype)initWithCalendarID:(NSString *)calendarID {
+    self = [super init];
+    if (self) {
+        _calendarID = calendarID;
+    }
+    return self;
 }
 
 - (GTLQueryCalendar *)createIndexQueryWithMonth:(NSDate *)date {
-    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:@"primary"];
+    GTLQueryCalendar *query = [GTLQueryCalendar queryForEventsListWithCalendarId:self.calendarID];
     
     query.timeMin = [GTLDateTime dateTimeWithDate:[date beginningOfMonth]
                                          timeZone:[NSTimeZone localTimeZone]];
@@ -30,17 +44,17 @@
 }
 
 - (GTLQueryCalendar *)createCreateQueryWithEvent:(GTLCalendarEvent *)event {
-    return [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:@"primary"];
+    return [GTLQueryCalendar queryForEventsInsertWithObject:event calendarId:self.calendarID];
 }
 
 - (GTLQueryCalendar *)createUpdateQueryWithEvent:(GTLCalendarEvent *)event where:(NSString *)eventId {
     return [GTLQueryCalendar queryForEventsUpdateWithObject:event
-                                                 calendarId:@"primary"
+                                                 calendarId:self.calendarID
                                                     eventId:eventId];
 }
 
 - (GTLQueryCalendar *)createDeleteQueryWithEventId:(NSString *)eventId {
-    return [GTLQueryCalendar queryForEventsDeleteWithCalendarId:@"primary"
+    return [GTLQueryCalendar queryForEventsDeleteWithCalendarId:self.calendarID
                                                         eventId:eventId];
 }
 

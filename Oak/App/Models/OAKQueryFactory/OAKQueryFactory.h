@@ -13,7 +13,9 @@
 
 @property (nonatomic, copy, readonly) NSDate *date;
 
-+ (instancetype)factory;
++ (instancetype)factoryWithCalendarID:(NSString *)calendarID;
+
+- (instancetype)initWithCalendarID:(NSString *)calendarID;
 
 - (GTLQueryCalendar *)createIndexQueryWithMonth:(NSDate *)date;
 - (GTLQueryCalendar *)createCreateQueryWithEvent:(GTLCalendarEvent *)event;

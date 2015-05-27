@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Google-API-Client/GTLCalendar.h>
 
 @interface ViewController : UIViewController
 
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
+
+- (instancetype)initWithCalendarID:(NSString *)calendarID;
 
 @end
 
