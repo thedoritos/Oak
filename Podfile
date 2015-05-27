@@ -1,6 +1,7 @@
 target 'Oak' do
   pod 'Google-API-Client/Calendar'
   pod 'BlocksKit'
+  pod 'UIColor-HexString'
 
   # Controls
   pod 'ActionSheetPicker-3.0'
