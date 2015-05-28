@@ -22,6 +22,10 @@
 		9D727C001B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFF1B147F4A00BC76B3 /* OAKCalendarQueryFactoryTests.m */; };
 		9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727C161B14AF7100BC76B3 /* MenuViewController.m */; };
 		9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D727C171B14AF7100BC76B3 /* MenuViewController.xib */; };
+		9D74A35B1B17621600B6E06E /* OAKSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D74A35A1B17621600B6E06E /* OAKSlideView.m */; };
+		9D74A35D1B17622900B6E06E /* OAKSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A35C1B17622900B6E06E /* OAKSlideView.xib */; };
+		9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */; };
+		9D74A3631B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -78,6 +82,11 @@
 		9D727C151B14AF7100BC76B3 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = App/Controllers/MenuViewController/MenuViewController.h; sourceTree = "<group>"; };
 		9D727C161B14AF7100BC76B3 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = App/Controllers/MenuViewController/MenuViewController.m; sourceTree = "<group>"; };
 		9D727C171B14AF7100BC76B3 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuViewController.xib; path = App/Controllers/MenuViewController/MenuViewController.xib; sourceTree = "<group>"; };
+		9D74A3591B17621600B6E06E /* OAKSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKSlideView.h; path = App/Views/OAKSlideView/OAKSlideView.h; sourceTree = "<group>"; };
+		9D74A35A1B17621600B6E06E /* OAKSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKSlideView.m; path = App/Views/OAKSlideView/OAKSlideView.m; sourceTree = "<group>"; };
+		9D74A35C1B17622900B6E06E /* OAKSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKSlideView.xib; path = App/Views/OAKSlideView/OAKSlideView.xib; sourceTree = "<group>"; };
+		9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_left_black_48dp@2x.png"; path = "Resources/MaterialDesignIcons/ic_chevron_left_black_48dp@2x.png"; sourceTree = "<group>"; };
+		9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_right_black_48dp@2x.png"; path = "Resources/MaterialDesignIcons/ic_chevron_right_black_48dp@2x.png"; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -164,6 +173,7 @@
 		9D4719AA1B0578B800AAF8FE /* Oak */ = {
 			isa = PBXGroup;
 			children = (
+				9D74A35E1B17629A00B6E06E /* Resources */,
 				9D8402B71B06764400AD4227 /* App */,
 				9D8402B41B06762800AD4227 /* Config */,
 				9D4719AF1B0578B800AAF8FE /* AppDelegate.h */,
@@ -256,6 +266,33 @@
 			name = MenuViewController;
 			sourceTree = "<group>";
 		};
+		9D74A3581B17615E00B6E06E /* OAKSlideView */ = {
+			isa = PBXGroup;
+			children = (
+				9D74A3591B17621600B6E06E /* OAKSlideView.h */,
+				9D74A35A1B17621600B6E06E /* OAKSlideView.m */,
+				9D74A35C1B17622900B6E06E /* OAKSlideView.xib */,
+			);
+			name = OAKSlideView;
+			sourceTree = "<group>";
+		};
+		9D74A35E1B17629A00B6E06E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D74A35F1B1762B300B6E06E /* MaterialDesignIcons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9D74A35F1B1762B300B6E06E /* MaterialDesignIcons */ = {
+			isa = PBXGroup;
+			children = (
+				9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */,
+				9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */,
+			);
+			name = MaterialDesignIcons;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +373,7 @@
 		9D8402CE1B08323A00AD4227 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D74A3581B17615E00B6E06E /* OAKSlideView */,
 				9D8402CF1B08324100AD4227 /* OAKDayCell */,
 			);
 			name = Views;
@@ -454,9 +492,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
+				9D74A3631B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png in Resources */,
+				9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */,
 				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
+				9D74A35D1B17622900B6E06E /* OAKSlideView.xib in Resources */,
 				9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */,
 				9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */,
 			);
@@ -552,6 +593,7 @@
 				9DAA05DF1B0CEAEF009C026D /* OAKEvents.m in Sources */,
 				9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */,
 				9D8402D31B08327000AD4227 /* OAKDayCell.m in Sources */,
+				9D74A35B1B17621600B6E06E /* OAKSlideView.m in Sources */,
 				9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
