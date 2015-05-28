@@ -22,15 +22,18 @@
 #import "OAKEvents.h"
 #import "MenuViewController.h"
 #import "OAKCalendarService.h"
+#import "OAKSlideView.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, OAKSlideViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) OAKSlideView *slideView;
 
 @property (nonatomic) NSString *calendarID;
+@property (nonatomic) NSDate *month;
 
 @property (nonatomic) NSArray *dates;
 @property (nonatomic) OAKEvents *events;
@@ -41,10 +44,19 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 
 @implementation ViewController
 
-- (instancetype)initWithCalendarID:(NSString *)calendarID {
+- (instancetype)initWithCalendarID:(NSString *)calendarID month:(NSDate *)month {
     self = [super init];
     if (self) {
         self.calendarID = calendarID;
+        self.month = month;
+    }
+    return self;
+}
+
+- (instancetype)initWithCalendarID:(NSString *)calendarID {
+    self = [self initWithCalendarID:calendarID month:[NSDate date]];
+    if (self) {
+        
     }
     return self;
 }
@@ -52,8 +64,7 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDate *today = [NSDate date];
-    self.dates = [NSDate datesBetween:today.beginningOfMonth and:today.endOfMonth];
+    self.dates = [NSDate datesBetween:self.month.beginningOfMonth and:self.month.endOfMonth];
     self.events = [[OAKEvents alloc] init];
     
     self.calendarService = [OAKCalendarService sharedService];
@@ -84,6 +95,12 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     }
     
     [self viewDidAuthorize];
+    
+    OAKSlideView *slideView = [[OAKSlideView alloc] initWithFrame:CGRectMake(0, 0, 220, 32)];
+    self.navigationItem.titleView = slideView;
+    
+    self.slideView = slideView;
+    self.slideView.delegate = self;
 }
 
 - (void)viewDidAuthorize {
@@ -183,6 +200,18 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
         [self.tableView reloadData];
         [self dismissProgressWithSuccess];
     }];
+}
+
+#pragma mark - OAKSlideViewDelegate
+
+- (void)slideViewDidSelectRight:(OAKSlideView *)slideView {
+    ViewController *viewController = [[ViewController alloc] initWithCalendarID:self.calendarID month:[self.month addMonth:1]];
+    [self.navigationController setViewControllers:@[viewController]];
+}
+
+- (void)slideViewDidSelectLeft:(OAKSlideView *)slideView {
+    ViewController *viewController = [[ViewController alloc] initWithCalendarID:self.calendarID month:[self.month addMonth:-1]];
+    [self.navigationController setViewControllers:@[viewController]];
 }
 
 #pragma mark - UITableViewDataSource
@@ -298,7 +327,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
 
 - (void)setEvents:(OAKEvents *)events {
     _events = events;
-    self.title = events == nil ? @"Events" : events.summary;
+    
+    self.slideView.titleLabel.text = events == nil ? @"Events" : [NSString stringWithFormat:@"%@ : %ld月", events.summary, (long)self.month.month];
 }
 
 @end
