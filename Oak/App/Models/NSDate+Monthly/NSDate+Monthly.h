@@ -23,6 +23,7 @@
 - (NSDate *)beginningOfDay;
 - (NSDate *)endOfDay;
 
+- (NSDate *)addMonth:(NSInteger)month;
 - (NSDate *)addDay:(NSInteger)day;
 - (NSDate *)addHour:(NSInteger)hour;
 
