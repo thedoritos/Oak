@@ -14,6 +14,7 @@
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 
 - (instancetype)initWithCalendarID:(NSString *)calendarID;
+- (instancetype)initWithCalendarID:(NSString *)calendarID month:(NSDate *)month;
 
 @end
 

@@ -82,6 +82,18 @@
     XCTAssertEqual(end.second, 59);
 }
 
+- (void)testAddMonth {
+    NSDate *nextMonth = [self.today addMonth:1];
+    XCTAssertEqual(nextMonth.year, 1988);
+    XCTAssertEqual(nextMonth.month, 3);
+    XCTAssertEqual(nextMonth.day, 14);
+    
+    NSDate *lastMonth = [self.today addMonth:-1];
+    XCTAssertEqual(lastMonth.year, 1988);
+    XCTAssertEqual(lastMonth.month, 1);
+    XCTAssertEqual(lastMonth.day, 14);
+}
+
 - (void)testAddDay {
     NSDate *tomorrow = [self.today addDay:1];
     XCTAssertEqual(tomorrow.year, 1988);

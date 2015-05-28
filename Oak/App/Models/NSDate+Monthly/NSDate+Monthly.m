@@ -60,6 +60,12 @@
                                                options:NSCalendarMatchPreviousTimePreservingSmallerUnits];
 }
 
+- (NSDate *)addMonth:(NSInteger)month {
+    NSDateComponents *offset = [[NSDateComponents alloc] init];
+    offset.month = month;
+    return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
+}
+
 - (NSDate *)addDay:(NSInteger)day {
     NSDateComponents *offset = [[NSDateComponents alloc] init];
     offset.day = day;
