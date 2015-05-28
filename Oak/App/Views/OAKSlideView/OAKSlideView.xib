@@ -30,14 +30,13 @@
                         <action selector="didSelectRight:" destination="-1" eventType="touchUpInside" id="6re-v4-Y5Q"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsA-Pv-3oF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsA-Pv-3oF">
                     <rect key="frame" x="53" y="0.0" width="134" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ROk-9C-wDj" secondAttribute="trailing" id="3en-8y-dZV"/>
                 <constraint firstItem="Bga-uH-IgB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Bb-ed-DZO"/>
