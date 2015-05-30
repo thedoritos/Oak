@@ -27,6 +27,8 @@
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
 
+NSString * const kUIImageName = @"ic_menu_black_48dp";
+
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, OAKSlideViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -75,7 +77,8 @@ NSString * const DayCellIdentifier = @"OAKDayCell";
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks handler:^(id sender) {
+    UIImage *menuImage = [UIImage imageNamed:kUIImageName];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:menuImage style:UIBarButtonItemStylePlain handler:^(id sender) {
         MenuViewController *menu = (MenuViewController *) self.navigationController;
         [menu toggleMenu];
     }];
