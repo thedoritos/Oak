@@ -13,6 +13,7 @@
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
 		9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719B81B0578B800AAF8FE /* Images.xcassets */; };
 		9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4719BA1B0578B800AAF8FE /* LaunchScreen.xib */; };
+		9D4CA6D91B19FC320006E240 /* ic_menu_black_48dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D4CA6D81B19FC320006E240 /* ic_menu_black_48dp@2x.png */; };
 		9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */; };
 		9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD31B0B786100A7E114 /* OAKEventBuilder.m */; };
 		9D6BCBD61B0B79EF00A7E114 /* OAKEventBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6BCBD51B0B79EF00A7E114 /* OAKEventBuilderTests.m */; };
@@ -67,6 +68,7 @@
 		9D4719BB1B0578B800AAF8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D4719C11B0578B800AAF8FE /* OakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719C61B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D4CA6D81B19FC320006E240 /* ic_menu_black_48dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_menu_black_48dp@2x.png"; path = "Resources/MaterialDesignIcons/ic_menu_black_48dp@2x.png"; sourceTree = "<group>"; };
 		9D5B93D11B15F2BA004EAE56 /* OAKCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKCalendarService.h; path = App/Models/OAKCalendarService/OAKCalendarService.h; sourceTree = "<group>"; };
 		9D5B93D21B15F2BA004EAE56 /* OAKCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKCalendarService.m; path = App/Models/OAKCalendarService/OAKCalendarService.m; sourceTree = "<group>"; };
 		9D6BCBD21B0B786100A7E114 /* OAKEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventBuilder.h; path = App/Models/OAKEventBuilder/OAKEventBuilder.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */,
 				9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */,
+				9D4CA6D81B19FC320006E240 /* ic_menu_black_48dp@2x.png */,
 			);
 			name = MaterialDesignIcons;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
 				9D74A3631B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png in Resources */,
 				9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */,
+				9D4CA6D91B19FC320006E240 /* ic_menu_black_48dp@2x.png in Resources */,
 				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
