@@ -42,6 +42,8 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
 
 @property (nonatomic) OAKCalendarService *calendarService;
 
+@property (nonatomic) NSDictionary *summaries;
+
 @end
 
 @implementation ViewController
@@ -70,7 +72,12 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     self.events = [[OAKEvents alloc] init];
     
     self.calendarService = [OAKCalendarService sharedService];
-
+    
+    self.summaries = @{
+        @"primary" : @"イベント",
+        @"v2mlto6ell6bbsu9nh07p1nv9g@group.calendar.google.com" : @"オークフード"
+    };
+    
     [self.tableView registerNib:[UINib nibWithNibName:DayCellIdentifier bundle:nil] forCellReuseIdentifier:DayCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -136,7 +143,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     
     OAKEventBuilder *builder = [OAKEventBuilder builder];
     
-    GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
+    GTLCalendarEvent *event = [[[[builder setSummary:[self getSummary]]
                                           setStartDate:period.firstObject]
                                           setEndDate:period.lastObject]
                                           build];
@@ -163,7 +170,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     
     OAKEventBuilder *builder = [OAKEventBuilder builder];
     
-    GTLCalendarEvent *event = [[[[builder setSummary:@"OakFood"]
+    GTLCalendarEvent *event = [[[[builder setSummary:[self getSummary]]
                                           setStartDate:period.firstObject]
                                           setEndDate:period.lastObject]
                                           build];
@@ -257,7 +264,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
                                             rows:selectableStrings
                                 initialSelection:0
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
-                                           NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
+                                           NSArray *events = [self.events itemsWithSummary:[self getSummary] atDay:date];
                                            
                                            GTLCalendarEvent *matched = events.firstObject;
                                            if (matched != nil) {
@@ -279,7 +286,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDate *date = self.dates[indexPath.row];
-    NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
+    NSArray *events = [self.events itemsWithSummary:[self getSummary] atDay:date];
     
     return events.count > 0;
 }
@@ -288,7 +295,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         __block NSDate *date = self.dates[indexPath.row];
         
-        NSArray *events = [self.events itemsWithSummary:@"OakFood" atDay:date];
+        NSArray *events = [self.events itemsWithSummary:[self getSummary] atDay:date];
         
         GTLCalendarEvent *matched = events.firstObject;
         if (matched != nil) {
@@ -332,6 +339,15 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     _events = events;
     
     self.slideView.titleLabel.text = events == nil ? @"Events" : [NSString stringWithFormat:@"%@ : %ld月", events.summary, (long)self.month.month];
+}
+
+- (NSString *)getSummary {
+    NSString *summary = self.summaries[self.calendarID];
+    if (!summary) {
+        return @"イベント";
+    }
+    
+    return summary;
 }
 
 @end
