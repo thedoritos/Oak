@@ -41,10 +41,7 @@
 }
 
 - (NSDate *)endOfMonth {
-    return  [[NSDate defaultCalendar] nextDateAfterDate:self
-                                         matchingUnit:NSCalendarUnitDay
-                                                value:31
-                                              options:NSCalendarMatchPreviousTimePreservingSmallerUnits];
+    return [[[self addMonth:1] beginningOfMonth] addDay:-1];
 }
 
 - (NSDate *)beginningOfDay {

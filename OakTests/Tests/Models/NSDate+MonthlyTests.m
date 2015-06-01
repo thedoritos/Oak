@@ -62,6 +62,15 @@
     XCTAssertEqual(end.day, 29);
 }
 
+- (void)testGetEndOfMonthOfTheLatDayOfTheMonth {
+    NSDate *lastDay = [self.calendar dateWithEra:1 year:1988 month:5 day:31 hour:0 minute:0 second:0 nanosecond:0];
+    NSDate *end = [lastDay endOfMonth];
+    
+    XCTAssertEqual(end.year, 1988);
+    XCTAssertEqual(end.month, 5);
+    XCTAssertEqual(end.day, 31);
+}
+
 - (void)testGetBeginningOfDay {
     NSDate *beginning = [self.today beginningOfDay];
     XCTAssertEqual(beginning.year, 1988);
