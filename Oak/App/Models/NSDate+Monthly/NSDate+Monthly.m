@@ -41,7 +41,7 @@
 }
 
 - (NSDate *)endOfMonth {
-    return [[[self addMonth:1] beginningOfMonth] addDay:-1];
+    return [[[self addMonth:1] beginningOfMonth] addSecond:-1];
 }
 
 - (NSDate *)beginningOfDay {
