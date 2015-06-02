@@ -37,7 +37,29 @@ describe(@"NSDate+Monthly", ^{
             expect(ago.second).to.equal(0);
         });
     });
-    
+
+    describe(@"#addSecond", ^{
+        it(@"returns 3 seconds ago", ^{
+            NSDate *ago = [today addSecond:3];
+            expect(ago.year).to.equal(1988);
+            expect(ago.month).to.equal(5);
+            expect(ago.day).to.equal(31);
+            expect(ago.hour).to.equal(0);
+            expect(ago.minute).to.equal(0);
+            expect(ago.second).to.equal(3);
+        });
+        
+        it(@"returns 4 seconds before", ^{
+            NSDate *ago = [today addSecond:-4];
+            expect(ago.year).to.equal(1988);
+            expect(ago.month).to.equal(5);
+            expect(ago.day).to.equal(30);
+            expect(ago.hour).to.equal(23);
+            expect(ago.minute).to.equal(59);
+            expect(ago.second).to.equal(56);
+        });
+    });
+
     describe(@"#endOfMonth", ^{
         it(@"returns the last day of the month", ^{
             NSDate *end = [today endOfMonth];
