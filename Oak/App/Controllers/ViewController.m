@@ -123,7 +123,7 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     [self showProgress:@"Receiving..."];
     
     OAKQueryFactory *factory = [OAKQueryFactory factoryWithCalendarID:self.calendarID];
-    GTLQueryCalendar *query = [factory createIndexQueryWithMonth:[NSDate date]];
+    GTLQueryCalendar *query = [factory createIndexQueryWithMonth:self.month];
     [self.calendarService executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLCalendarEvents *fetched, NSError *error) {
         if (error != nil) {
             NSLog(@"Failed to fetch events with error: %@", error.localizedDescription);
