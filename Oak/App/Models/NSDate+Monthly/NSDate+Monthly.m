@@ -81,6 +81,12 @@
     return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
 }
 
+- (NSDate *)addSecond:(NSInteger)second {
+    NSDateComponents *offset = [[NSDateComponents alloc] init];
+    offset.second = second;
+    return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
+}
+
 - (BOOL)isBetween:(NSDate *)start and:(NSDate *)end {
     NSComparisonResult startResult = [self compare:start];
     NSComparisonResult endResult = [self compare:end];
