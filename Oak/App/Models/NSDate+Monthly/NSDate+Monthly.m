@@ -41,7 +41,7 @@
 }
 
 - (NSDate *)endOfMonth {
-    return [[[self addMonth:1] beginningOfMonth] addDay:-1];
+    return [[[self addMonth:1] beginningOfMonth] addSecond:-1];
 }
 
 - (NSDate *)beginningOfDay {
@@ -72,6 +72,18 @@
 - (NSDate *)addHour:(NSInteger)hour {
     NSDateComponents *offset = [[NSDateComponents alloc] init];
     offset.hour = hour;
+    return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
+}
+
+- (NSDate *)addMinute:(NSInteger)minute {
+    NSDateComponents *offset = [[NSDateComponents alloc] init];
+    offset.minute = minute;
+    return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
+}
+
+- (NSDate *)addSecond:(NSInteger)second {
+    NSDateComponents *offset = [[NSDateComponents alloc] init];
+    offset.second = second;
     return [[NSDate defaultCalendar] dateByAddingComponents:offset toDate:self options:0];
 }
 

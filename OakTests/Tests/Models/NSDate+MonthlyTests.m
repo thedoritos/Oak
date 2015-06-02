@@ -149,8 +149,11 @@
 - (void)testGetDatesBetween {
     NSArray *dates = [NSDate datesBetween:[self.today beginningOfMonth] and:[self.today endOfMonth]];
     XCTAssertEqual(dates.count, 29);
-    XCTAssertEqualObjects(dates.firstObject, [self.today beginningOfMonth]);
-    XCTAssertEqualObjects(dates.lastObject, [self.today endOfMonth]);
+    for (NSInteger i = 0; i < dates.count; i++) {
+        NSDate *date = dates[i];
+        NSInteger day = i + 1;
+        XCTAssertEqual(date.day, day, @"should be the date");
+    }
 }
 
 @end

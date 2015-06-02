@@ -33,7 +33,7 @@
     
     _today            = [self.calendar dateWithEra:1 year:1988 month:2 day:14 hour:0 minute:0 second:0 nanosecond:0];
     _beginningOfMonth = [self.calendar dateWithEra:1 year:1988 month:2 day:1  hour:0 minute:0 second:0 nanosecond:0];
-    _endOfMonth       = [self.calendar dateWithEra:1 year:1988 month:2 day:29 hour:0 minute:0 second:0 nanosecond:0];
+    _endOfMonth       = [self.calendar dateWithEra:1 year:1988 month:2 day:29 hour:23 minute:59 second:59 nanosecond:0];
     
     _calendarID = @"humour studio";
     _sut = [[OAKQueryFactory alloc] initWithCalendarID:self.calendarID];

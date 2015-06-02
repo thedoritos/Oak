@@ -26,6 +26,8 @@
 - (NSDate *)addMonth:(NSInteger)month;
 - (NSDate *)addDay:(NSInteger)day;
 - (NSDate *)addHour:(NSInteger)hour;
+- (NSDate *)addMinute:(NSInteger)minute;
+- (NSDate *)addSecond:(NSInteger)second;
 
 - (BOOL)isBetween:(NSDate *)start and:(NSDate *)end;
 
