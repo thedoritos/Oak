@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "MenuViewController.h"
+#import <UIColor-HexString/UIColor+HexString.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIColor *baseColor   = [UIColor colorWithHexString:@"#FFD37F"];
+    UIColor *secondColor = [UIColor colorWithHexString:@"#B28E47"];
+    UIColor *thirdColor  = [UIColor colorWithHexString:@"#FFDC98"];
+    UIColor *fourthColor = [UIColor colorWithHexString:@"#356AB2"];
+    UIColor *fifthColor  = [UIColor colorWithHexString:@"#7FB5FF"];
+    
+    [[UINavigationBar appearance] setTintColor:fifthColor];
+    [[UINavigationBar appearance] setBarTintColor:baseColor];
+    [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setTextColor:[UIColor colorWithHexString:@"FFFFFF"]];
     
     UIViewController *defaultViewController = [[ViewController alloc] initWithCalendarID:@"primary"];
     UIViewController *navigationController = [[MenuViewController alloc] initWithRootViewController:defaultViewController];
