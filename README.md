@@ -12,3 +12,18 @@ Calendar app for the super limited situation.
 
 - Download Google API Client ID from Google Developer Console in JSON format
 - Place the JSON on `Config/client_secret.json`
+
+## Testing
+
+### Unit Tests
+
+```
+xcodebuild test -workspace Oak.xcworkspace -scheme Oak -destination 'platform=iOS Simulator,name=iPhone 6'
+```
+
+### Acceptance Tests
+
+```
+bundle install --path=vendor/bundle
+bundle exec cucumber
+```
