@@ -18,7 +18,7 @@ Calendar app for the super limited situation.
 ### Unit Tests
 
 ```
-xcodebuild test -workspace Oak.xcworkspace -scheme Oak -destination 'platform=iOS Simulator,name=iPhone 6'
+xcodebuild test -workspace Oak.xcworkspace -scheme Oak -sdk iphonesimulator
 ```
 
 ### Acceptance Tests
