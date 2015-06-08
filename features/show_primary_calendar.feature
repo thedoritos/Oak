@@ -10,8 +10,6 @@ Scenario: Show top events
 
 Scenario: Show following events
   Given I am on the Default Screen
-  And I scroll down
-  And I scroll down
-  And I scroll down
+  And I scroll table down
   Then I should see "28"
   And take picture
