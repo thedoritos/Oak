@@ -71,6 +71,12 @@ describe(@"NSDate+Monthly", ^{
             expect(end.second).to.equal(59);
         });
     });
+    
+    describe(@"#weekday", ^{
+        it(@"returns weekday", ^{
+            expect(today.weekday).to.equal(3);
+        });
+    });
 });
 
 SpecEnd
