@@ -6,5 +6,7 @@ Feature: Show events picker
 Scenario: Show event picker
   Given I am on the Default Screen
   Then I touch list item number 1
-  Then I should see "Events"
+  Then I should see text containing "Events"
+  Then I should see text containing "月"
+  Then I should see text containing "日"
   And take picture
