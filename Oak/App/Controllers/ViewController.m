@@ -260,7 +260,11 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
         return [NSString stringWithFormat:@"%ld:00 ~ %ld:00", (long)beginning.hour, (long)end.hour];
     }];
     
-    [ActionSheetStringPicker showPickerWithTitle:@"Events"
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"M月d日";
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    [ActionSheetStringPicker showPickerWithTitle:[NSString stringWithFormat:@"Events : %@", dateString]
                                             rows:selectableStrings
                                 initialSelection:0
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
