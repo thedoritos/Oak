@@ -7,44 +7,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OAKDayCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="KGk-i7-Jjw" customClass="OAKDayCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swj-pg-HfY" userLabel="DayLabel">
-                        <rect key="frame" x="8" y="8" width="22" height="27"/>
+                        <rect key="frame" x="14" y="17" width="24" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="22" id="Rum-t7-7VQ"/>
+                            <constraint firstAttribute="width" constant="24" id="Rum-t7-7VQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0g-Of-chE" userLabel="EventLabel">
-                        <rect key="frame" x="40" y="8" width="272" height="27"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="48" y="8" width="264" height="35"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="金" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idX-XR-48W" userLabel="WeekdayLabel">
+                        <rect key="frame" x="5" y="20" width="9" height="11"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="b0g-Of-chE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Gya-LL-1L6"/>
-                    <constraint firstItem="b0g-Of-chE" firstAttribute="leading" secondItem="Swj-pg-HfY" secondAttribute="trailing" constant="10" id="Jee-kQ-OYk"/>
-                    <constraint firstItem="Swj-pg-HfY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="df6-eW-hiL"/>
-                    <constraint firstItem="Swj-pg-HfY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jBt-N3-QAn"/>
+                    <constraint firstItem="Swj-pg-HfY" firstAttribute="leading" secondItem="idX-XR-48W" secondAttribute="trailing" id="NbI-f7-VoW"/>
+                    <constraint firstItem="b0g-Of-chE" firstAttribute="leading" secondItem="Swj-pg-HfY" secondAttribute="trailing" constant="10" id="QJO-ed-3lj"/>
+                    <constraint firstItem="idX-XR-48W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="RrY-1M-E7K"/>
+                    <constraint firstAttribute="centerY" secondItem="Swj-pg-HfY" secondAttribute="centerY" id="m2i-hY-YE6"/>
                     <constraint firstItem="b0g-Of-chE" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="m6i-Th-a4d"/>
+                    <constraint firstAttribute="centerY" secondItem="idX-XR-48W" secondAttribute="centerY" id="pfH-qz-Zw3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="b0g-Of-chE" secondAttribute="trailing" id="pv5-At-bAs"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Swj-pg-HfY" secondAttribute="bottom" id="uoV-i9-fVM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dayLabel" destination="Swj-pg-HfY" id="onO-9V-1La"/>
                 <outlet property="eventLabel" destination="b0g-Of-chE" id="NLn-Pi-Oy8"/>
+                <outlet property="weekdayLabel" destination="idX-XR-48W" id="lHN-bD-4Hp"/>
             </connections>
-            <point key="canvasLocation" x="221" y="351"/>
+            <point key="canvasLocation" x="221" y="355"/>
         </tableViewCell>
     </objects>
 </document>

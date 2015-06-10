@@ -15,13 +15,25 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weekdayLabel;
 
 @end
 
 @implementation OAKDayCell
 
 - (void)setDate:(NSDate *)date {
+    NSDictionary *weekdays = @{
+        @(1): @"日",
+        @(2): @"月",
+        @(3): @"火",
+        @(4): @"水",
+        @(5): @"木",
+        @(6): @"金",
+        @(7): @"土"
+    };
+    
     self.dayLabel.text = [NSString stringWithFormat:@"%ld", (long)date.day];
+    self.weekdayLabel.text = weekdays[@(date.weekday)];
 }
 
 - (void)setEvents:(NSArray *)events {
