@@ -34,6 +34,10 @@
     return [[NSDate defaultCalendar] component:NSCalendarUnitSecond fromDate:self];
 }
 
+- (NSInteger)weekday {
+    return [[NSDate defaultCalendar] component:NSCalendarUnitWeekday fromDate:self];
+}
+
 - (NSDate *)beginningOfMonth {
     NSDateComponents *components = [[NSDate defaultCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self];
     components.day = 1;

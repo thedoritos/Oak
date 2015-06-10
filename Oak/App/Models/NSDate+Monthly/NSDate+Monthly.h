@@ -16,6 +16,7 @@
 - (NSInteger)hour;
 - (NSInteger)minute;
 - (NSInteger)second;
+- (NSInteger)weekday;
 
 - (NSDate *)beginningOfMonth;
 - (NSDate *)endOfMonth;
