@@ -311,6 +311,10 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     [tableView reloadData];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [OAKDayCell preferredHeight];
+}
+
 #pragma mark - View Helpers
 
 - (void)showAlert:(NSString *)title message:(NSString *)message {
