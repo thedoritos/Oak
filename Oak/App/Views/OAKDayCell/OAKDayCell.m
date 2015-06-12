@@ -52,4 +52,8 @@
     }] componentsJoinedByString:@"; "];
 }
 
++ (CGFloat)preferredHeight {
+    return 52.0f;
+}
+
 @end

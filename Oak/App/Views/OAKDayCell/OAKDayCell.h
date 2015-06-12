@@ -13,4 +13,6 @@
 - (void)setDate:(NSDate *)date;
 - (void)setEvents:(NSArray *)events;
 
++ (CGFloat)preferredHeight;
+
 @end
