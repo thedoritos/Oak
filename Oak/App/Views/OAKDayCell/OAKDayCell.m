@@ -10,6 +10,7 @@
 #import "NSDate+Monthly.h"
 #import <BlocksKit/BlocksKit.h>
 #import <GTLCalendar.h>
+#import <UIColor-HexString/UIColor+HexString.h>
 
 @interface OAKDayCell ()
 
@@ -32,7 +33,15 @@
         @(7): @"土"
     };
     
+    UIColor *color = [UIColor colorWithHexString:@"#252525"];
+    if (date.weekday == 1) {
+        color = [UIColor colorWithHexString:@"#CC3430"];
+    } else if (date.weekday == 2) {
+        color = [UIColor colorWithHexString:@"#3088CC"];
+    }
+    
     self.dayLabel.text = [NSString stringWithFormat:@"%ld", (long)date.day];
+    self.dayLabel.textColor = color;
     self.weekdayLabel.text = weekdays[@(date.weekday)];
 }
 
