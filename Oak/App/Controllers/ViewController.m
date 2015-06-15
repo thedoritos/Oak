@@ -248,8 +248,8 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     __block NSDate *date = self.dates[indexPath.row];
     
     NSArray *selectablePeriods = @[
-        @[[date addHour:5], [date addHour:9]],
         @[[date addHour:5], [date addHour:14]],
+        @[[date addHour:5], [date addHour:9]],
         @[[date addHour:7], [date addHour:14]],
         @[[date addHour:8], [date addHour:14]]
     ];
