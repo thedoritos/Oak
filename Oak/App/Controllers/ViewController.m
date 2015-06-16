@@ -85,10 +85,13 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     self.tableView.delegate = self;
     
     UIImage *menuImage = [UIImage imageNamed:kUIImageName];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:menuImage style:UIBarButtonItemStylePlain handler:^(id sender) {
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] bk_initWithImage:menuImage style:UIBarButtonItemStylePlain handler:^(id sender) {
         MenuViewController *menu = (MenuViewController *) self.navigationController;
         [menu toggleMenu];
     }];
+    menuButton.accessibilityLabel = @"menu";
+    
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
