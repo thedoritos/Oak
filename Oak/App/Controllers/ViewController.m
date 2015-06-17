@@ -23,11 +23,13 @@
 #import "MenuViewController.h"
 #import "OAKCalendarService.h"
 #import "OAKSlideView.h"
+#import "OAKSettingsViewController.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
 
 NSString * const kUIImageName = @"ic_menu_black_48dp";
+NSString * const kSettingsImageName = @"ic_settings_black_48dp";
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, OAKSlideViewDelegate>
 
@@ -92,6 +94,17 @@ NSString * const kUIImageName = @"ic_menu_black_48dp";
     menuButton.accessibilityLabel = @"menu";
     
     self.navigationItem.leftBarButtonItem = menuButton;
+    
+    UIImage *settingsImage = [UIImage imageNamed:kSettingsImageName];
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] bk_initWithImage:settingsImage style:UIBarButtonItemStylePlain handler:^(id sender) {
+        OAKSettingsViewController *settingsViewController = [[OAKSettingsViewController alloc] init];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+        
+        [self presentViewController:navigationController animated:YES completion:nil];
+    }];
+    settingsButton.accessibilityLabel = @"settings";
+    
+    self.navigationItem.rightBarButtonItem = settingsButton;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
