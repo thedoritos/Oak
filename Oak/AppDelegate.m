@@ -27,6 +27,9 @@
     UIColor *fifthColor  = [UIColor colorWithHexString:@"#7FB5FF"];
     
     [[UINavigationBar appearance] setTintColor:fifthColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+        NSForegroundColorAttributeName : [UIColor colorWithHexString:@"FFFFFF"]
+    }];
     [[UINavigationBar appearance] setBarTintColor:baseColor];
     [[UILabel appearanceWhenContainedIn:[UINavigationBar class], nil] setTextColor:[UIColor colorWithHexString:@"FFFFFF"]];
     
