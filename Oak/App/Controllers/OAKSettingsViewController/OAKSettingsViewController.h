@@ -10,4 +10,7 @@
 
 @interface OAKSettingsViewController : UIViewController
 
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithCalendarID:(NSString *)calendarID;
+
 @end

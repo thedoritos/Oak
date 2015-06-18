@@ -2,11 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OAKSettingsViewController">
             <connections>
+                <outlet property="tableView" destination="Niv-pb-q5P" id="OrX-S9-O6s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,21 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings view is under construction." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tB-zk-ALe">
-                    <rect key="frame" x="40" y="240" width="240" height="18"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Niv-pb-q5P">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4tB-zk-ALe" secondAttribute="bottom" constant="30" id="J5g-ao-ysU"/>
-                <constraint firstItem="4tB-zk-ALe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="MCZ-qG-tAB"/>
-                <constraint firstItem="4tB-zk-ALe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Qkw-Sr-q7T"/>
-                <constraint firstAttribute="centerY" secondItem="4tB-zk-ALe" secondAttribute="centerY" multiplier="8:7" id="Sgi-Nn-65X"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4tB-zk-ALe" secondAttribute="trailing" constant="30" id="gUZ-RF-Z6h"/>
-                <constraint firstAttribute="centerX" secondItem="4tB-zk-ALe" secondAttribute="centerX" id="hai-z2-EOu"/>
+                <constraint firstAttribute="trailing" secondItem="Niv-pb-q5P" secondAttribute="trailing" id="FUW-F6-m33"/>
+                <constraint firstAttribute="bottom" secondItem="Niv-pb-q5P" secondAttribute="bottom" id="Xjk-KL-9on"/>
+                <constraint firstItem="Niv-pb-q5P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eS8-ec-GrZ"/>
+                <constraint firstItem="Niv-pb-q5P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vCn-iS-0ek"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
