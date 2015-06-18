@@ -97,7 +97,7 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
     
     UIImage *settingsImage = [UIImage imageNamed:kSettingsImageName];
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] bk_initWithImage:settingsImage style:UIBarButtonItemStylePlain handler:^(id sender) {
-        OAKSettingsViewController *settingsViewController = [[OAKSettingsViewController alloc] init];
+        OAKSettingsViewController *settingsViewController = [[OAKSettingsViewController alloc] initWithCalendarID:self.calendarID];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
         
         [self presentViewController:navigationController animated:YES completion:nil];
