@@ -8,12 +8,14 @@
 
 #import "OAKSettingsViewController.h"
 #import <BlocksKit/BlocksKit+UIKit.h>
+#import "OAKEventTemplateStore.h"
 
 @interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) NSString *calendarID;
+@property (nonatomic) OAKEventTemplateStore *templateStore;
 
 @end
 
@@ -23,6 +25,7 @@
     self = [super init];
     if (self) {
         self.calendarID = calendarID;
+        self.templateStore = [OAKEventTemplateStore storeForCalendarID:calendarID];
     }
     return self;
 }
@@ -61,7 +64,7 @@
         cell = [[UITableViewCell alloc] init];
     }
     
-    cell.textLabel.text = @"title";
+    cell.textLabel.text = [self.templateStore loadTitle];
     
     return cell;
 }

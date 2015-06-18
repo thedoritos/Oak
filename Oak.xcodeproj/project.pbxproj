@@ -46,6 +46,8 @@
 		9D74A35D1B17622900B6E06E /* OAKSlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A35C1B17622900B6E06E /* OAKSlideView.xib */; };
 		9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */; };
 		9D74A3631B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */; };
+		9D7AC1F31B330A35007D0142 /* OAKEventTemplateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */; };
+		9D7AC1F41B330D90007D0142 /* OAKEventTemplateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -124,6 +126,8 @@
 		9D74A35C1B17622900B6E06E /* OAKSlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKSlideView.xib; path = App/Views/OAKSlideView/OAKSlideView.xib; sourceTree = "<group>"; };
 		9D74A3601B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_left_black_48dp@2x.png"; path = "Resources/MaterialDesignIcons/ic_chevron_left_black_48dp@2x.png"; sourceTree = "<group>"; };
 		9D74A3611B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_right_black_48dp@2x.png"; path = "Resources/MaterialDesignIcons/ic_chevron_right_black_48dp@2x.png"; sourceTree = "<group>"; };
+		9D7AC1F11B330A35007D0142 /* OAKEventTemplateStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventTemplateStore.h; path = App/Models/OAKEventTemplateStore/OAKEventTemplateStore.h; sourceTree = "<group>"; };
+		9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventTemplateStore.m; path = App/Models/OAKEventTemplateStore/OAKEventTemplateStore.m; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -352,6 +356,15 @@
 			name = MaterialDesignIcons;
 			sourceTree = "<group>";
 		};
+		9D7AC1F01B330A18007D0142 /* OAKEventTemplateStore */ = {
+			isa = PBXGroup;
+			children = (
+				9D7AC1F11B330A35007D0142 /* OAKEventTemplateStore.h */,
+				9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */,
+			);
+			name = OAKEventTemplateStore;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +386,7 @@
 		9D8402B81B06765200AD4227 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D7AC1F01B330A18007D0142 /* OAKEventTemplateStore */,
 				9D5B93D01B15F1CA004EAE56 /* OAKCalendarService */,
 				9D727BFB1B147EE600BC76B3 /* OAKCalendarQueryFactory */,
 				9DAA05DC1B0CEADA009C026D /* OAKEvents */,
@@ -732,6 +746,7 @@
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
 				9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */,
 				9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */,
+				9D7AC1F31B330A35007D0142 /* OAKEventTemplateStore.m in Sources */,
 				9D727C181B14AF7100BC76B3 /* MenuViewController.m in Sources */,
 				9DAA05DF1B0CEAEF009C026D /* OAKEvents.m in Sources */,
 				9D6BCBD41B0B786100A7E114 /* OAKEventBuilder.m in Sources */,
@@ -769,6 +784,7 @@
 				c2f3737ac5bfd00dfb54ff09 /* OAKJSONLoader.m in Sources */,
 				2d72cfaaece492620e64b591 /* OAKCalendarService.m in Sources */,
 				9945bc72a5442ba4a201aa4b /* OAKCalendarQueryFactory.m in Sources */,
+				9D7AC1F41B330D90007D0142 /* OAKEventTemplateStore.m in Sources */,
 				8f483b742f3ad3d74bdc8a91 /* MenuViewController.m in Sources */,
 				c02d7f8503fd6788a99a5332 /* OAKEvents.m in Sources */,
 				43bb0b2cfd70761469c7db38 /* OAKEventBuilder.m in Sources */,
