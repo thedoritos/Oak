@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class OAKTextCell;
+
+@protocol OAKTextCellDelegate <NSObject>
+
+- (void)oakTextCell:(OAKTextCell *)cell didChangeText:(NSString *)text;
+
+@end
+
 @interface OAKTextCell : UITableViewCell
 
 - (void)setText:(NSString *)text;
+
+@property (nonatomic) id<OAKTextCellDelegate> deletgate;
 
 @end

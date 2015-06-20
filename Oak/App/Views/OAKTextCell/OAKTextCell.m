@@ -8,7 +8,7 @@
 
 #import "OAKTextCell.h"
 
-@interface OAKTextCell ()
+@interface OAKTextCell () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textView;
 
@@ -16,8 +16,20 @@
 
 @implementation OAKTextCell
 
+- (void)awakeFromNib {
+    self.textView.delegate = self;
+}
+
 - (void)setText:(NSString *)text {
     self.textView.text = text;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (self.deletgate && [self.deletgate respondsToSelector:@selector(oakTextCell:didChangeText:)]) {
+        [self.deletgate oakTextCell:self didChangeText:textField.text];
+    }
 }
 
 @end

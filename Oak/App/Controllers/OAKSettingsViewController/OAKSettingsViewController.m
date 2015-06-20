@@ -13,7 +13,7 @@
 
 NSString * const kTextCell = @"OAKTextCell";
 
-@interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate, OAKTextCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -64,11 +64,20 @@ NSString * const kTextCell = @"OAKTextCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OAKTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
+    
+    [cell setDeletgate:self];
     [cell setText:[self.templateStore loadTitle]];
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+
+
+#pragma mark - OAKTextCellDelegate
+
+- (void)oakTextCell:(OAKTextCell *)cell didChangeText:(NSString *)text {
+    [self.templateStore saveTitle:text];
+}
 
 @end
