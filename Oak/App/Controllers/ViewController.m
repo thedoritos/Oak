@@ -24,6 +24,7 @@
 #import "OAKCalendarService.h"
 #import "OAKSlideView.h"
 #import "OAKSettingsViewController.h"
+#import "OAKEventTemplateStore.h"
 
 NSString * const KEYCHAIN_NAME = @"Oak";
 NSString * const DayCellIdentifier = @"OAKDayCell";
@@ -44,7 +45,7 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
 
 @property (nonatomic) OAKCalendarService *calendarService;
 
-@property (nonatomic) NSDictionary *summaries;
+@property (nonatomic) OAKEventTemplateStore *eventTemplateStore;
 
 @end
 
@@ -55,6 +56,7 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
     if (self) {
         self.calendarID = calendarID;
         self.month = month;
+        self.eventTemplateStore = [OAKEventTemplateStore storeForCalendarID:calendarID];
     }
     return self;
 }
@@ -74,11 +76,6 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
     self.events = [[OAKEvents alloc] init];
     
     self.calendarService = [OAKCalendarService sharedService];
-    
-    self.summaries = @{
-        @"primary" : @"イベント",
-        @"v2mlto6ell6bbsu9nh07p1nv9g@group.calendar.google.com" : @"オークフード"
-    };
     
     [self.tableView registerNib:[UINib nibWithNibName:DayCellIdentifier bundle:nil] forCellReuseIdentifier:DayCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -278,9 +275,10 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"M月d日";
+    NSString *summary = [self getSummary];
     NSString *dateString = [formatter stringFromDate:date];
     
-    [ActionSheetStringPicker showPickerWithTitle:[NSString stringWithFormat:@"Events : %@", dateString]
+    [ActionSheetStringPicker showPickerWithTitle:[NSString stringWithFormat:@"%@ : %@", summary, dateString]
                                             rows:selectableStrings
                                 initialSelection:0
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, NSString *selectedValue) {
@@ -366,12 +364,7 @@ NSString * const kSettingsImageName = @"ic_settings_black_48dp";
 }
 
 - (NSString *)getSummary {
-    NSString *summary = self.summaries[self.calendarID];
-    if (!summary) {
-        return @"イベント";
-    }
-    
-    return summary;
+    return [self.eventTemplateStore loadTitle];
 }
 
 @end

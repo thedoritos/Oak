@@ -9,8 +9,11 @@
 #import "OAKSettingsViewController.h"
 #import <BlocksKit/BlocksKit+UIKit.h>
 #import "OAKEventTemplateStore.h"
+#import "OAKTextCell.h"
 
-@interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate>
+NSString * const kTextCell = @"OAKTextCell";
+
+@interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate, OAKTextCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -43,6 +46,8 @@
     
     self.title = @"Settings";
     
+    [self.tableView registerNib:[UINib nibWithNibName:kTextCell bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kTextCell];
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 }
@@ -58,17 +63,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = @"TitleCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
-    }
+    OAKTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
     
-    cell.textLabel.text = [self.templateStore loadTitle];
+    [cell setDeletgate:self];
+    [cell setText:[self.templateStore loadTitle]];
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+
+
+#pragma mark - OAKTextCellDelegate
+
+- (void)oakTextCell:(OAKTextCell *)cell didChangeText:(NSString *)text {
+    [self.templateStore saveTitle:text];
+}
 
 @end

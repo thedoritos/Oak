@@ -59,6 +59,10 @@
 		9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402D21B08327000AD4227 /* OAKDayCell.xib */; };
 		9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */; };
 		9D8402DB1B0839E300AD4227 /* NSDate+MonthlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */; };
+		9D8F426E1B3471CD00A092B6 /* OAKTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F426C1B3471CD00A092B6 /* OAKTextCell.m */; };
+		9D8F426F1B3471CD00A092B6 /* OAKTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F426C1B3471CD00A092B6 /* OAKTextCell.m */; };
+		9D8F42701B3471CD00A092B6 /* OAKTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F426D1B3471CD00A092B6 /* OAKTextCell.xib */; };
+		9D8F42711B3471CD00A092B6 /* OAKTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8F426D1B3471CD00A092B6 /* OAKTextCell.xib */; };
 		9D9D49A61B1DE26C00E79BAF /* NSDate+MonthlySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D49A51B1DE26C00E79BAF /* NSDate+MonthlySpec.m */; };
 		9DAA05DB1B0CEAC2009C026D /* OAKEventsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAA05DA1B0CEAC2009C026D /* OAKEventsTests.m */; };
 		9DAA05DF1B0CEAEF009C026D /* OAKEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAA05DE1B0CEAEF009C026D /* OAKEvents.m */; };
@@ -143,6 +147,9 @@
 		9D8402D61B0839B300AD4227 /* NSDate+Monthly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Monthly.h"; path = "App/Models/NSDate+Monthly/NSDate+Monthly.h"; sourceTree = "<group>"; };
 		9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Monthly.m"; path = "App/Models/NSDate+Monthly/NSDate+Monthly.m"; sourceTree = "<group>"; };
 		9D8402DA1B0839E300AD4227 /* NSDate+MonthlyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MonthlyTests.m"; path = "Tests/Models/NSDate+MonthlyTests.m"; sourceTree = "<group>"; };
+		9D8F426B1B3471CD00A092B6 /* OAKTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKTextCell.h; path = App/Views/OAKTextCell/OAKTextCell.h; sourceTree = "<group>"; };
+		9D8F426C1B3471CD00A092B6 /* OAKTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKTextCell.m; path = App/Views/OAKTextCell/OAKTextCell.m; sourceTree = "<group>"; };
+		9D8F426D1B3471CD00A092B6 /* OAKTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKTextCell.xib; path = App/Views/OAKTextCell/OAKTextCell.xib; sourceTree = "<group>"; };
 		9D9D49A51B1DE26C00E79BAF /* NSDate+MonthlySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MonthlySpec.m"; path = "Tests/Models/NSDate+MonthlySpec.m"; sourceTree = "<group>"; };
 		9DAA05DA1B0CEAC2009C026D /* OAKEventsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventsTests.m; path = Tests/Models/OAKEventsTests.m; sourceTree = "<group>"; };
 		9DAA05DD1B0CEAEF009C026D /* OAKEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEvents.h; path = App/Models/OAKEvents/OAKEvents.h; sourceTree = "<group>"; };
@@ -448,6 +455,7 @@
 		9D8402CE1B08323A00AD4227 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D8F426A1B3471A100A092B6 /* OAKTextCell */,
 				9D74A3581B17615E00B6E06E /* OAKSlideView */,
 				9D8402CF1B08324100AD4227 /* OAKDayCell */,
 			);
@@ -471,6 +479,16 @@
 				9D8402D71B0839B300AD4227 /* NSDate+Monthly.m */,
 			);
 			name = "NSDate+Monthly";
+			sourceTree = "<group>";
+		};
+		9D8F426A1B3471A100A092B6 /* OAKTextCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D8F426B1B3471CD00A092B6 /* OAKTextCell.h */,
+				9D8F426C1B3471CD00A092B6 /* OAKTextCell.m */,
+				9D8F426D1B3471CD00A092B6 /* OAKTextCell.xib */,
+			);
+			name = OAKTextCell;
 			sourceTree = "<group>";
 		};
 		9DAA05DC1B0CEADA009C026D /* OAKEvents */ = {
@@ -598,6 +616,7 @@
 			files = (
 				9D8402CD1B06D48F00AD4227 /* ViewController.xib in Resources */,
 				9DAB83D51B31843B0021E0D0 /* OAKSettingsViewController.xib in Resources */,
+				9D8F42701B3471CD00A092B6 /* OAKTextCell.xib in Resources */,
 				9D74A3631B1762C000B6E06E /* ic_chevron_right_black_48dp@2x.png in Resources */,
 				9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */,
 				9D4CA6D91B19FC320006E240 /* ic_menu_black_48dp@2x.png in Resources */,
@@ -625,6 +644,7 @@
 			files = (
 				06645e4fa3278152fe12dd74 /* ViewController.xib in Resources */,
 				9DAB83D61B31843B0021E0D0 /* OAKSettingsViewController.xib in Resources */,
+				9D8F42711B3471CD00A092B6 /* OAKTextCell.xib in Resources */,
 				7422de028ab57a5e6829286c /* ic_chevron_right_black_48dp@2x.png in Resources */,
 				180f8f061de316f542eadb3d /* ic_chevron_left_black_48dp@2x.png in Resources */,
 				297d0fe4bf41dbea2584e1fb /* ic_menu_black_48dp@2x.png in Resources */,
@@ -740,6 +760,7 @@
 			files = (
 				9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */,
 				9D6BCBDA1B0B95E000A7E114 /* OAKQueryFactory.m in Sources */,
+				9D8F426E1B3471CD00A092B6 /* OAKTextCell.m in Sources */,
 				9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */,
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
 				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
@@ -778,6 +799,7 @@
 			files = (
 				60ca9eae1cf8abef190d562b /* ViewController.m in Sources */,
 				1fead5c093912b3abb0e4c34 /* OAKQueryFactory.m in Sources */,
+				9D8F426F1B3471CD00A092B6 /* OAKTextCell.m in Sources */,
 				a35d312bf461c4658d0e02de /* AppDelegate.m in Sources */,
 				81811429f26c5dcb8ce0d5ab /* main.m in Sources */,
 				4be873103278b806c0188340 /* NSDate+Monthly.m in Sources */,
