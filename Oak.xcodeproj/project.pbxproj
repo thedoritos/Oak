@@ -27,6 +27,10 @@
 		8edc512e5f4bf1dc49d9f5ca /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6b1b5d0b0306e68a8f980131 /* calabash.framework */; };
 		8f483b742f3ad3d74bdc8a91 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727C161B14AF7100BC76B3 /* MenuViewController.m */; };
 		9945bc72a5442ba4a201aa4b /* OAKCalendarQueryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D727BFD1B147F2100BC76B3 /* OAKCalendarQueryFactory.m */; };
+		9D3683711B369E2E00C5AFDF /* bread.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3683701B369E2E00C5AFDF /* bread.png */; };
+		9D3683721B369E2E00C5AFDF /* bread.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3683701B369E2E00C5AFDF /* bread.png */; };
+		9D3683741B36A0A200C5AFDF /* bread_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3683731B36A0A200C5AFDF /* bread_transparent.png */; };
+		9D3683751B36A0A200C5AFDF /* bread_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3683731B36A0A200C5AFDF /* bread_transparent.png */; };
 		9D4719AE1B0578B800AAF8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719AD1B0578B800AAF8FE /* main.m */; };
 		9D4719B11B0578B800AAF8FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B01B0578B800AAF8FE /* AppDelegate.m */; };
 		9D4719B41B0578B800AAF8FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4719B31B0578B800AAF8FE /* ViewController.m */; };
@@ -98,6 +102,8 @@
 		229E503A0BFDD28FB1F947DC /* libPods-OakTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OakTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6b1b5d0b0306e68a8f980131 /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
 		973D25785BB4292EC1E31D13 /* libPods-Oak.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Oak.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D3683701B369E2E00C5AFDF /* bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bread.png; path = Resources/Freepik/bread.png; sourceTree = "<group>"; };
+		9D3683731B36A0A200C5AFDF /* bread_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bread_transparent.png; path = Resources/Freepik/bread_transparent.png; sourceTree = "<group>"; };
 		9D4719A81B0578B800AAF8FE /* Oak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4719AC1B0578B800AAF8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D4719AD1B0578B800AAF8FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -215,6 +221,15 @@
 				D8DD1C63E44F15CE105D256F /* Pods-OakTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D36836F1B369DFD00C5AFDF /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				9D3683701B369E2E00C5AFDF /* bread.png */,
+				9D3683731B36A0A200C5AFDF /* bread_transparent.png */,
+			);
+			name = AppIcons;
 			sourceTree = "<group>";
 		};
 		9D47199F1B0578B800AAF8FE = {
@@ -347,6 +362,7 @@
 		9D74A35E1B17629A00B6E06E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9D36836F1B369DFD00C5AFDF /* AppIcons */,
 				9D74A35F1B1762B300B6E06E /* MaterialDesignIcons */,
 			);
 			name = Resources;
@@ -622,10 +638,12 @@
 				9D4CA6D91B19FC320006E240 /* ic_menu_black_48dp@2x.png in Resources */,
 				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
+				9D3683711B369E2E00C5AFDF /* bread.png in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
 				9D74A35D1B17622900B6E06E /* OAKSlideView.xib in Resources */,
 				9D8402D41B08327000AD4227 /* OAKDayCell.xib in Resources */,
 				9DAB83CD1B3183EE0021E0D0 /* ic_settings_black_48dp@2x.png in Resources */,
+				9D3683741B36A0A200C5AFDF /* bread_transparent.png in Resources */,
 				9D4719B91B0578B800AAF8FE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,10 +668,12 @@
 				297d0fe4bf41dbea2584e1fb /* ic_menu_black_48dp@2x.png in Resources */,
 				c247b0b56a5d4ec1639b2657 /* MenuViewController.xib in Resources */,
 				549e6586ae1efa62e9a55352 /* LaunchScreen.xib in Resources */,
+				9D3683721B369E2E00C5AFDF /* bread.png in Resources */,
 				01a69cf442c1b643f40a8a9a /* client_secret.json in Resources */,
 				42c081bb426fe9b94728ee41 /* OAKSlideView.xib in Resources */,
 				c15e89e32627f31293f9fe8b /* OAKDayCell.xib in Resources */,
 				9DAB83CE1B3183EE0021E0D0 /* ic_settings_black_48dp@2x.png in Resources */,
+				9D3683751B36A0A200C5AFDF /* bread_transparent.png in Resources */,
 				c28dabd7cbb51e986f0da268 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
