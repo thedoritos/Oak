@@ -15,4 +15,7 @@
 - (NSString *)loadTitle;
 - (void)saveTitle:(NSString *)title;
 
+- (NSInteger)loadPeriodCount;
+- (NSArray *)loadPeriodAtIndex:(NSInteger)index;
+
 @end

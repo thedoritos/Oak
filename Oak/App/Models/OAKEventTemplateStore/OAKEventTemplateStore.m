@@ -9,6 +9,7 @@
 #import "OAKEventTemplateStore.h"
 
 NSString * const kTitleKey = @"Title";
+NSString * const kPeriodsKey = @"Periods";
 
 @interface OAKEventTemplateStore ()
 
@@ -41,13 +42,31 @@ NSString * const kTitleKey = @"Title";
     [self saveTemplates:templates];
 }
 
+- (NSInteger)loadPeriodCount {
+    NSMutableDictionary *templates = [self loadTemplates];
+    NSArray *periods = templates[kPeriodsKey];
+    return periods.count;
+}
+
+- (NSArray *)loadPeriodAtIndex:(NSInteger)index {
+    NSMutableDictionary *templates = [self loadTemplates];
+    NSArray *periods = templates[kPeriodsKey];
+    return periods[index];
+}
+
 #pragma mark - Private
 
 - (NSMutableDictionary *)loadTemplates {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:@{
         self.calendarID : @{
-            kTitleKey : @"Event"
+            kTitleKey : @"Event",
+            kPeriodsKey : @[
+                @[@(5), @(14)],
+                @[@(5), @(9)],
+                @[@(7), @(14)],
+                @[@(8), @(14)]
+            ]
         }
     }];
     
