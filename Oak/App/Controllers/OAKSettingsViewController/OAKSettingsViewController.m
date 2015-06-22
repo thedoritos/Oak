@@ -10,8 +10,10 @@
 #import <BlocksKit/BlocksKit+UIKit.h>
 #import "OAKEventTemplateStore.h"
 #import "OAKTextCell.h"
+#import "OAKTimeCell.h"
 
 NSString * const kTextCell = @"OAKTextCell";
+NSString * const kTimeCell = @"OAKTimeCell";
 
 @interface OAKSettingsViewController () <UITableViewDataSource, UITableViewDelegate, OAKTextCellDelegate>
 
@@ -47,6 +49,7 @@ NSString * const kTextCell = @"OAKTextCell";
     self.title = @"Settings";
     
     [self.tableView registerNib:[UINib nibWithNibName:kTextCell bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kTextCell];
+    [self.tableView registerNib:[UINib nibWithNibName:kTimeCell bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kTimeCell];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -54,19 +57,40 @@ NSString * const kTextCell = @"OAKTextCell";
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+    
+    return [self.templateStore loadPeriodCount];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Title";
+    if (section == 0) {
+        return @"Title";
+    }
+    
+    return @"Time";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OAKTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
     
-    [cell setDeletgate:self];
-    [cell setText:[self.templateStore loadTitle]];
+    if (indexPath.section == 0) {
+        OAKTextCell *cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
+        
+        [cell setDeletgate:self];
+        [cell setText:[self.templateStore loadTitle]];
+        
+        return cell;
+    }
+    
+    OAKTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:kTimeCell];
+    
+    [cell setPeriod:[self.templateStore loadPeriodAtIndex:indexPath.row]];
     
     return cell;
 }
