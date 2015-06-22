@@ -97,6 +97,9 @@ NSString * const kTimeCell = @"OAKTimeCell";
 
 #pragma mark - UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 46;
+}
 
 #pragma mark - OAKTextCellDelegate
 
