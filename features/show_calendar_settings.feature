@@ -7,4 +7,6 @@ Scenario: Show settings
   Given I am on the Default Screen
   Then I should see "settings"
   Then I touch "settings"
+  Then I should see "TITLE"
+  Then I should see "TIME"
   And take picture
