@@ -10,3 +10,10 @@ Scenario: Show settings
   Then I should see "TITLE"
   Then I should see "TIME"
   And take picture
+
+Scenario: Edit title
+  Given I am on the Settings Screen
+  Then I clear the "text field" input field
+  Then I enter "Demo Event" into the "text field" input field
+  Then I touch "Done"
+  And take picture
