@@ -8,3 +8,10 @@ Scenario: Show calendars
   Then I should see "menu"
   Then I touch "menu"
   And take picture
+
+Scenario: Select calendars
+  Given I am on the Default Screen
+  Then I should see "menu"
+  Then I touch "menu"
+  Then I touch "Nanako"
+  And take picture
