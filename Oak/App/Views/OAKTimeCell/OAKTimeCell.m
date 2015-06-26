@@ -20,4 +20,8 @@
     self.timeLabel.text = [NSString stringWithFormat:@"%@:00 〜 %@:00", period[0], period[1]];
 }
 
+- (void)setTime:(NSNumber *)time {
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:00", time];
+}
+
 @end

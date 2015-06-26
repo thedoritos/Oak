@@ -56,6 +56,10 @@
 		9D7A92331B382A2B0088BB0A /* OAKTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D7A922F1B382A2B0088BB0A /* OAKTimeCell.xib */; };
 		9D7AC1F31B330A35007D0142 /* OAKEventTemplateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */; };
 		9D7AC1F41B330D90007D0142 /* OAKEventTemplateStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */; };
+		9D83D58B1B3D79E9009FF6AD /* OAKPeriodEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D5891B3D79E9009FF6AD /* OAKPeriodEditViewController.m */; };
+		9D83D58C1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D58A1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib */; };
+		9D83D58D1B3D7A01009FF6AD /* OAKPeriodEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D5891B3D79E9009FF6AD /* OAKPeriodEditViewController.m */; };
+		9D83D58E1B3D7A06009FF6AD /* OAKPeriodEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D58A1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib */; };
 		9D8402B61B06763A00AD4227 /* client_secret.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D8402B51B06763A00AD4227 /* client_secret.json */; };
 		9D8402BD1B0678DA00AD4227 /* OAKGoogleClientSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */; };
 		9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8402BF1B067ABF00AD4227 /* OAKJSONLoader.m */; };
@@ -145,6 +149,9 @@
 		9D7A922F1B382A2B0088BB0A /* OAKTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKTimeCell.xib; path = App/Views/OAKTimeCell/OAKTimeCell.xib; sourceTree = "<group>"; };
 		9D7AC1F11B330A35007D0142 /* OAKEventTemplateStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKEventTemplateStore.h; path = App/Models/OAKEventTemplateStore/OAKEventTemplateStore.h; sourceTree = "<group>"; };
 		9D7AC1F21B330A35007D0142 /* OAKEventTemplateStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKEventTemplateStore.m; path = App/Models/OAKEventTemplateStore/OAKEventTemplateStore.m; sourceTree = "<group>"; };
+		9D83D5881B3D79E9009FF6AD /* OAKPeriodEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKPeriodEditViewController.h; path = App/Controllers/OAKPeriodEditViewController/OAKPeriodEditViewController.h; sourceTree = "<group>"; };
+		9D83D5891B3D79E9009FF6AD /* OAKPeriodEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKPeriodEditViewController.m; path = App/Controllers/OAKPeriodEditViewController/OAKPeriodEditViewController.m; sourceTree = "<group>"; };
+		9D83D58A1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OAKPeriodEditViewController.xib; path = App/Controllers/OAKPeriodEditViewController/OAKPeriodEditViewController.xib; sourceTree = "<group>"; };
 		9D8402B51B06763A00AD4227 /* client_secret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = client_secret.json; path = Config/client_secret.json; sourceTree = "<group>"; };
 		9D8402BB1B0678DA00AD4227 /* OAKGoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAKGoogleClientSecret.h; path = App/Models/OAKGoogleClientSecret.h; sourceTree = "<group>"; };
 		9D8402BC1B0678DA00AD4227 /* OAKGoogleClientSecret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAKGoogleClientSecret.m; path = App/Models/OAKGoogleClientSecret.m; sourceTree = "<group>"; };
@@ -405,6 +412,16 @@
 			name = OAKEventTemplateStore;
 			sourceTree = "<group>";
 		};
+		9D83D5871B3D7987009FF6AD /* OAKPeriodEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D5881B3D79E9009FF6AD /* OAKPeriodEditViewController.h */,
+				9D83D5891B3D79E9009FF6AD /* OAKPeriodEditViewController.m */,
+				9D83D58A1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib */,
+			);
+			name = OAKPeriodEditViewController;
+			sourceTree = "<group>";
+		};
 		9D8402B41B06762800AD4227 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +493,7 @@
 		9D8402CB1B06D40100AD4227 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D83D5871B3D7987009FF6AD /* OAKPeriodEditViewController */,
 				9DAB83CF1B3184100021E0D0 /* OAKSettingsViewController */,
 				9D727C141B14AF3F00BC76B3 /* MenuViewController */,
 				9D4719B21B0578B800AAF8FE /* ViewController.h */,
@@ -655,6 +673,7 @@
 				9D74A3621B1762C000B6E06E /* ic_chevron_left_black_48dp@2x.png in Resources */,
 				9D4CA6D91B19FC320006E240 /* ic_menu_black_48dp@2x.png in Resources */,
 				9D727C191B14AF7100BC76B3 /* MenuViewController.xib in Resources */,
+				9D83D58C1B3D79E9009FF6AD /* OAKPeriodEditViewController.xib in Resources */,
 				9D4719BC1B0578B800AAF8FE /* LaunchScreen.xib in Resources */,
 				9D3683711B369E2E00C5AFDF /* bread.png in Resources */,
 				9D8402B61B06763A00AD4227 /* client_secret.json in Resources */,
@@ -686,6 +705,7 @@
 				180f8f061de316f542eadb3d /* ic_chevron_left_black_48dp@2x.png in Resources */,
 				297d0fe4bf41dbea2584e1fb /* ic_menu_black_48dp@2x.png in Resources */,
 				c247b0b56a5d4ec1639b2657 /* MenuViewController.xib in Resources */,
+				9D83D58E1B3D7A06009FF6AD /* OAKPeriodEditViewController.xib in Resources */,
 				549e6586ae1efa62e9a55352 /* LaunchScreen.xib in Resources */,
 				9D3683721B369E2E00C5AFDF /* bread.png in Resources */,
 				01a69cf442c1b643f40a8a9a /* client_secret.json in Resources */,
@@ -805,6 +825,7 @@
 				9D4719AE1B0578B800AAF8FE /* main.m in Sources */,
 				9D8402D81B0839B300AD4227 /* NSDate+Monthly.m in Sources */,
 				9D8402C01B067ABF00AD4227 /* OAKJSONLoader.m in Sources */,
+				9D83D58B1B3D79E9009FF6AD /* OAKPeriodEditViewController.m in Sources */,
 				9D5B93D31B15F2BA004EAE56 /* OAKCalendarService.m in Sources */,
 				9D7A92301B382A2B0088BB0A /* OAKTimeCell.m in Sources */,
 				9D727BFE1B147F2100BC76B3 /* OAKCalendarQueryFactory.m in Sources */,
@@ -845,6 +866,7 @@
 				81811429f26c5dcb8ce0d5ab /* main.m in Sources */,
 				4be873103278b806c0188340 /* NSDate+Monthly.m in Sources */,
 				c2f3737ac5bfd00dfb54ff09 /* OAKJSONLoader.m in Sources */,
+				9D83D58D1B3D7A01009FF6AD /* OAKPeriodEditViewController.m in Sources */,
 				2d72cfaaece492620e64b591 /* OAKCalendarService.m in Sources */,
 				9D7A92311B382A2B0088BB0A /* OAKTimeCell.m in Sources */,
 				9945bc72a5442ba4a201aa4b /* OAKCalendarQueryFactory.m in Sources */,

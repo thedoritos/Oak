@@ -11,5 +11,6 @@
 @interface OAKTimeCell : UITableViewCell
 
 - (void)setPeriod:(NSArray *)period;
+- (void)setTime:(NSNumber *)time;
 
 @end
