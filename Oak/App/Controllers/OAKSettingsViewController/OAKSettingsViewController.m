@@ -11,6 +11,7 @@
 #import "OAKEventTemplateStore.h"
 #import "OAKTextCell.h"
 #import "OAKTimeCell.h"
+#import "OAKPeriodEditViewController.h"
 
 NSString * const kTextCell = @"OAKTextCell";
 NSString * const kTimeCell = @"OAKTimeCell";
@@ -99,6 +100,16 @@ NSString * const kTimeCell = @"OAKTimeCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 46;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return;
+    }
+    
+    NSArray *period = [self.templateStore loadPeriodAtIndex:indexPath.row];
+    OAKPeriodEditViewController *editViewController = [[OAKPeriodEditViewController alloc] initWithPeriod:period];
+    [self.navigationController pushViewController:editViewController animated:YES];
 }
 
 #pragma mark - OAKTextCellDelegate
