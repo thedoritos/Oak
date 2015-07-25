@@ -8,6 +8,8 @@
 
 #import "OAKPeriodEditViewController.h"
 #import "OAKTimeCell.h"
+#import "NSDate+Monthly.h"
+#import <ActionSheetPicker-3.0/ActionSheetDatePicker.h>
 
 NSString * const kTimeCellIdentifier = @"OAKTimeCell";
 
@@ -56,6 +58,20 @@ NSString * const kTimeCellIdentifier = @"OAKTimeCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSDate *now = [[[[NSDate alloc] init] beginningOfDay] addHour:9];
+    
+    __block OAKTimeCell *cell = (OAKTimeCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    [ActionSheetDatePicker showPickerWithTitle:@"Input Time"
+                                datePickerMode:UIDatePickerModeTime
+                                  selectedDate:now
+                                     doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
+                                         
+                                         [cell setTime:@(selectedDate.hour)];
+                                         
+                                     } cancelBlock:^(ActionSheetDatePicker *picker){
+                                         
+                                     } origin:self.view];
 }
 
 @end
